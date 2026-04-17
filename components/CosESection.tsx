@@ -18,7 +18,7 @@ export default function CosESection() {
           </h1>
         </div>
 
-        <p className="shrink-0 w-full max-w-4xl pb-8 md:pb-10 text-center text-[11px] sm:text-xs md:text-sm tracking-[0.18em] md:tracking-[0.22em] uppercase text-foreground font-normal leading-relaxed">
+        <p className="mt-4 md:mt-5 shrink-0 w-full max-w-4xl pb-14 md:pb-20 lg:pb-24 text-center text-[11px] sm:text-xs md:text-sm tracking-[0.18em] md:tracking-[0.22em] uppercase text-foreground font-normal leading-relaxed">
           Residenza Artistica Molise{" "}
           <span className="inline-block px-2 sm:px-3 select-none" aria-hidden="true">
             |
