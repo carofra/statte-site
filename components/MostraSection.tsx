@@ -7,7 +7,7 @@ export default function MostraSection() {
       <Container>
         <div className="flex flex-col gap-10 md:gap-14 text-left">
           <div>
-            <p className="text-xs md:text-sm tracking-[0.22em] uppercase text-foreground font-normal">
+            <p className="text-xl md:text-2xl uppercase tracking-wide text-foreground font-normal">
               Mostra
             </p>
             <h2 className="mt-6 text-3xl md:text-6xl font-normal leading-[1.05] tracking-[-0.02em] text-foreground">

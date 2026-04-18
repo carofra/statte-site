@@ -63,10 +63,10 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-background border-b border-foreground">
+    <header className="sticky top-0 z-[110] bg-background border-b border-foreground">
       <Container>
-        <div className="flex h-12 items-center justify-between gap-6">
-          <nav className="hidden md:flex flex-1 items-center justify-between gap-6">
+        <div className="flex min-h-14 items-center justify-between gap-6 py-3.5 md:py-4">
+          <nav className="hidden md:flex flex-1 items-center justify-between gap-4 lg:gap-6">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -76,7 +76,7 @@ export default function Header() {
                   onNavClick(item.id);
                 }}
                 className={[
-                  "text-[10px] tracking-[0.42em] uppercase text-foreground",
+                  "text-base md:text-lg lowercase tracking-wide text-foreground",
                   activeId === item.id ? "border-b border-foreground pb-0.5" : "",
                 ].join(" ")}
                 aria-current={activeId === item.id ? "page" : undefined}
@@ -89,12 +89,12 @@ export default function Header() {
           <div className="md:hidden ml-auto">
             <button
               type="button"
-              className="text-[10px] tracking-[0.42em] uppercase text-foreground"
+              className="text-base lowercase tracking-wide text-foreground"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((v) => !v)}
             >
-              {open ? "Chiudi" : "Menu"}
+              {open ? "chiudi" : "menu"}
             </button>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Header() {
                     onNavClick(item.id);
                   }}
                   className={[
-                    "text-left text-[11px] tracking-[0.42em] uppercase text-foreground",
+                    "text-left text-lg lowercase tracking-wide text-foreground",
                     activeId === item.id ? "underline underline-offset-8" : "",
                   ].join(" ")}
                 >

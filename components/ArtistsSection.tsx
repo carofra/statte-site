@@ -10,11 +10,11 @@ export default function ArtistsSection() {
       <WideContainer centered>
         <div className="flex flex-col gap-16 md:gap-20 text-center items-center">
           <div>
-            <p className="text-[11px] md:text-xs tracking-[0.32em] uppercase text-foreground font-normal">
+            <p className="text-xl md:text-2xl uppercase tracking-wide text-foreground font-normal">
               Artisti
             </p>
-            <h2 className="mt-6 text-3xl md:text-6xl font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
-              Partecipanti
+            <h2 className="mt-6 text-3xl md:text-6xl font-normal leading-[1.05] tracking-[-0.02em] text-foreground lowercase">
+              in residenza
             </h2>
           </div>
 
@@ -24,7 +24,9 @@ export default function ArtistsSection() {
                 key={name}
                 className={["py-16 md:py-24", idx > 0 ? "border-t border-foreground" : ""].join(" ")}
               >
-                <p className={`text-[clamp(2.75rem,9vw,7.5rem)] leading-[0.95] tracking-[-0.04em] ${nameHoverClass}`}>
+                <p
+                  className={`text-[clamp(1.65rem,min(5.2vw+0.35rem,5.25rem),5.25rem)] leading-[0.95] tracking-[-0.04em] whitespace-nowrap ${nameHoverClass}`}
+                >
                   {name}
                 </p>
               </div>

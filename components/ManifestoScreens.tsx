@@ -12,7 +12,7 @@ export default function ManifestoScreens() {
         {manifestoPhrases.map((phrase, idx) => (
           <section
             key={`${idx}-${phrase}`}
-            className="min-h-[100dvh] flex items-center justify-center bg-[#ffffff] px-4 md:px-8 lg:px-12 py-40 md:py-52 lg:py-60"
+            className="min-h-[92dvh] flex items-center justify-center bg-[#ffffff] px-4 md:px-8 lg:px-12 py-32 md:py-40 lg:py-48"
           >
             <motion.p
               className="w-full max-w-[min(1400px,calc(100vw-2rem))] mx-auto text-justify text-[clamp(3rem,7vw,8.5rem)] leading-[1.12] tracking-[-0.04em] font-normal text-[#1d1d1b]"

@@ -35,6 +35,7 @@ export const labs: Array<{ title: string; curator: string }> = [
 export const talk = {
   title: "Arte e Molise",
   date: "Sabato 20 Giugno",
+  guests: "Ospiti - Le Fonticelle - Sagra Futuro",
 };
 
 export const mostraFinale = {
@@ -47,14 +48,10 @@ export const mostraFinale = {
 export const guestLogos: string[] = ["Le Fonticelle", "Sagra Futuro", "manoAmano"];
 
 export const manifestoPhrases: string[] = [
-  "Stattə è l'impegno di restare, per costruire insieme il futuro culturale del Molise.",
-  "Restare significa mettere radici per far germogliare nuove idee.",
-  "È un'esortazione alla sosta creativa: un invito a rallentare il passo per ascoltare meglio.",
-  "Valorizzare il territorio molisano attraverso l’arte contemporanea: non come slogan, ma come pratica quotidiana.",
-  "Stattə è resistenza dolce: restare non è fermarsi, è tenere ferma l'attenzione.",
-  "Un tempo condiviso in cui le pratiche diventano relazioni e le relazioni diventano forma.",
-  "Il Molise come luogo di ascolto: meno slogan, più presenza, più cura del dettaglio.",
-  "Gli artisti non sono ospiti: sono abitanti temporanei di un presente che si costruisce insieme.",
-  "Un impegno di restare per far crescere un futuro culturale radicato, lento e autentico.",
+  "Stattə è un progetto culturale che nasce dal desiderio di creare uno spazio di ascolto, dialogo e produzione artistica nel cuore del Molise.",
+  "Il progetto si fonda su un modello concreto di collaborazione che unisce la ricerca artistica alla formazione aperta a tuttə.",
+  "Immaginiamo un Molise in cui la cultura sia un cantiere aperto e pulsante. Il nostro obiettivo è tessere una tela dove l'arte diventa incontro: un dialogo ininterrotto tra le radici dei padri e le intuizioni dei figli, fondendo tecniche e linguaggi in un'unica espressione corale.",
+  "Vogliamo abbattere le pareti dei luoghi chiusi per far fluire l'energia creativa tra la gente, rendendo l'intera comunità non solo spettatrice, ma autrice della propria rinascita.",
 ];
+
 

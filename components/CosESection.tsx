@@ -4,7 +4,7 @@ export default function CosESection() {
   return (
     <section id="cos-e" className="scroll-mt-20">
       <div className="min-h-[100dvh] flex flex-col items-center px-6 md:px-12 lg:px-16">
-        <div className="flex flex-1 w-full min-h-0 flex-col items-center justify-center pt-12 md:pt-16 pb-4">
+        <div className="flex flex-1 w-full min-h-0 flex-col items-center justify-center pt-12 md:pt-16 pb-14 md:pb-20 lg:pb-24">
           <h1 className="flex w-full justify-center">
             <Image
               src="/stattelogo.png"
@@ -16,15 +16,10 @@ export default function CosESection() {
               sizes="98vw"
             />
           </h1>
+          <p className="mt-1 md:mt-2 w-full max-w-4xl text-center text-sm sm:text-base md:text-lg tracking-[0.14em] md:tracking-[0.18em] uppercase text-foreground font-normal leading-relaxed">
+            Dal 15 al 28 giugno 2026
+          </p>
         </div>
-
-        <p className="mt-4 md:mt-5 shrink-0 w-full max-w-4xl pb-14 md:pb-20 lg:pb-24 text-center text-[11px] sm:text-xs md:text-sm tracking-[0.18em] md:tracking-[0.22em] uppercase text-foreground font-normal leading-relaxed">
-          Residenza Artistica Molise{" "}
-          <span className="inline-block px-2 sm:px-3 select-none" aria-hidden="true">
-            |
-          </span>
-          15 - 28 Giugno 2026
-        </p>
       </div>
     </section>
   );
