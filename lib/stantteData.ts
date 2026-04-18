@@ -17,23 +17,6 @@ export const artists: string[] = [
   "Tommasina Giuliasi",
 ];
 
-export const labCurators: string[] = Array.from(
-  new Set(
-    [
-      "Giulia Veneziale",
-      "Raffaella Mastrogiuseppe",
-      "Marco Di Prisco",
-      "Maria Martino",
-      "Giusi Cornacchione",
-      "Lorenzo Mastrogiuseppe",
-      "Paolo Giarrusso",
-      "Denny Vitulli",
-      "Annarita Iammarone",
-      "Burgi Stellar",
-    ].filter(Boolean),
-  ),
-);
-
 export const labs: Array<{ title: string; curator: string }> = [
   { title: "EDITORIA CREATIVA", curator: "Giulia Veneziale" },
   { title: "CACCIATORI DI OMBRE", curator: "Raffaella Mastrogiuseppe" },

@@ -1,5 +1,5 @@
 import WideContainer from "./WideContainer";
-import { labCurators, labs } from "@/lib/stantteData";
+import { labs } from "@/lib/stantteData";
 
 const titleHoverClass =
   "inline-block font-normal text-foreground cursor-default border-b-2 border-transparent pb-1 transition-[border-color,transform] duration-500 ease-out motion-safe:hover:border-foreground motion-safe:hover:-translate-y-0.5";
@@ -34,17 +34,6 @@ export default function LabsSection() {
                 </p>
               </article>
             ))}
-          </div>
-
-          <div className="mt-8 md:mt-12 pt-12 md:pt-16 border-t border-foreground max-w-3xl">
-            <p className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-foreground font-normal">
-              Lab — curatori
-            </p>
-            <ul className="mt-6 md:mt-8 flex flex-col gap-2.5 md:gap-3 text-sm md:text-base leading-snug font-normal text-foreground">
-              {labCurators.map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </WideContainer>
