@@ -11,55 +11,89 @@ function getHeaderOffsetPx(): number {
   return Math.ceil(header.getBoundingClientRect().height) + 12;
 }
 
-function scrollToSectionId(id: string) {
+function sectionDocumentTop(el: HTMLElement): number {
+  return el.getBoundingClientRect().top + window.scrollY;
+}
+
+/** Ultima sezione in ordine di navigazione il cui inizio è sopra la linea di lettura (sotto l'header). */
+function computeActiveSectionId(ids: string[], readingLineY: number): string {
+  let active = ids[0] ?? "";
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (sectionDocumentTop(el) <= readingLineY) active = id;
+    else break;
+  }
+  return active;
+}
+
+function scrollToSectionId(id: string): ScrollBehavior {
   const el = document.getElementById(id);
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.scrollY - getHeaderOffsetPx();
-  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  if (!el) return "auto";
+  const targetTop = el.getBoundingClientRect().top + window.scrollY - getHeaderOffsetPx();
+  const nextY = Math.max(0, targetTop);
+  const distance = Math.abs(window.scrollY - nextY);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Salti lunghi: scroll istantaneo (smooth nativo può sembrare "lento" su one-page molto alte).
+  const behavior: ScrollBehavior =
+    reduceMotion || distance > window.innerHeight * 2.2 ? "auto" : "smooth";
+  window.scrollTo({ top: nextY, behavior });
+  return behavior;
 }
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>(navItems[0]?.id ?? "");
-  const ignoreObserverUntilRef = useRef(0);
+  /** Non sovrascrivere l'evidenziazione durante / subito dopo uno scroll programmatico da menu. */
+  const ignoreSpyUntilRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
 
   const sectionIds = useMemo(() => navItems.map((n) => n.id), []);
 
   useEffect(() => {
-    const els = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+    const header = document.querySelector("header");
+    if (!(header instanceof HTMLElement)) return;
 
-    if (!els.length) return;
+    const syncFromScroll = () => {
+      if (typeof window === "undefined") return;
+      if (Date.now() < ignoreSpyUntilRef.current) return;
+      const line = window.scrollY + getHeaderOffsetPx() + 1;
+      const next = computeActiveSectionId(sectionIds, line);
+      setActiveId((prev) => (prev === next ? prev : next));
+    };
 
-    const headerH = getHeaderOffsetPx();
+    const scheduleSync = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = window.requestAnimationFrame(() => {
+        rafRef.current = null;
+        syncFromScroll();
+      });
+    };
 
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (Date.now() < ignoreObserverUntilRef.current) return;
+    scheduleSync();
 
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+    window.addEventListener("scroll", scheduleSync, { passive: true });
+    window.addEventListener("resize", scheduleSync, { passive: true });
 
-        if (visible?.target?.id) setActiveId(visible.target.id);
-      },
-      {
-        root: null,
-        rootMargin: `-${headerH}px 0px -42% 0px`,
-        threshold: [0.08, 0.2, 0.35, 0.5],
-      },
-    );
+    const ro = new ResizeObserver(() => scheduleSync());
+    ro.observe(header);
 
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
+    return () => {
+      window.removeEventListener("scroll", scheduleSync);
+      window.removeEventListener("resize", scheduleSync);
+      ro.disconnect();
+      if (rafRef.current != null) {
+        window.cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
   }, [sectionIds]);
 
   const onNavClick = useCallback((id: string) => {
     setOpen(false);
     setActiveId(id);
-    ignoreObserverUntilRef.current = Date.now() + 1000;
-    scrollToSectionId(id);
+    const behavior = scrollToSectionId(id);
+    ignoreSpyUntilRef.current = Date.now() + (behavior === "smooth" ? 900 : 80);
   }, []);
 
   return (

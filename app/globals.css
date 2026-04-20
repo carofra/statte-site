@@ -56,9 +56,14 @@
 }
 
 html {
-  scroll-behavior: smooth;
   /* Offset anchor per header sticky (altezza variabile + respiro) */
   scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
