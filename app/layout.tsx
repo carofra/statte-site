@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ScrollGatedGlobalWatermark from "@/components/ScrollGatedGlobalWatermark";
 
 export const metadata: Metadata = {
   title: "Stattə - Residenza Artistica",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="it" className="h-full antialiased">
       <body className="grain-page min-h-full flex flex-col bg-background text-foreground font-sans">
+        <ScrollGatedGlobalWatermark />
         {children}
       </body>
     </html>

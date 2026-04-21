@@ -1,8 +1,9 @@
 import Container from "./Container";
+import RotatingLogoE from "./RotatingLogoE";
 
 export default function Footer() {
   return (
-    <footer className="py-10 md:py-12 bg-background border-t border-foreground">
+    <footer className="relative border-t border-foreground bg-background py-10 pb-24 md:py-12 md:pb-20">
       <Container>
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12 md:gap-16">
           <div className="min-w-0 max-w-xl">
@@ -34,10 +35,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 text-[10px] tracking-[0.42em] lowercase text-foreground font-normal">
+        <div className="mt-12 max-w-[calc(100%-8rem)] text-[10px] font-normal lowercase tracking-[0.42em] text-foreground md:max-w-[calc(100%-9rem)] lg:max-w-none">
           stattə &copy; 2026
         </div>
       </Container>
+
+      <div
+        className="pointer-events-none absolute bottom-5 right-4 md:bottom-7 md:right-7"
+        aria-hidden
+      >
+        <RotatingLogoE
+          size="clamp(5.75rem, 5vw + 3.5rem, 7rem)"
+          className="opacity-[0.94]"
+        />
+      </div>
     </footer>
   );
 }

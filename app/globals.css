@@ -125,3 +125,25 @@ a {
     transform: translate3d(0, 0, 0);
   }
 }
+
+/* Footer: timbro “e” wordmark — rotazione lenta e costante */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-logo-e-svg {
+  display: block;
+  transform-origin: 50% 50%;
+  animation: rotate 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-logo-e-svg {
+    animation: none;
+  }
+}
