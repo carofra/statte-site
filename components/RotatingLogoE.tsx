@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import { useScrollLinkedRotation } from "@/hooks/useScrollLinkedRotation";
+import { useScrollRotationMotionValue } from "@/components/ScrollRotationProvider";
 
 export type RotatingLogoEProps = {
   /** Lato del quadrato sullo schermo (es. `5.75rem`, `112`, `1.05em`). */
@@ -19,7 +19,7 @@ export type RotatingLogoEProps = {
   priority?: boolean;
   /**
    * `css`: animazione 30s in `globals.css`.
-   * `motionScroll`: rotazione via Framer — idle lentissima, velocità legata allo scroll.
+   * `motionScroll`: stesso angolo condiviso (provider in layout) — watermark e footer allineati.
    */
   rotationMode?: "css" | "motionScroll";
   /** Tooltip nativo (es. incipit “interattivo” nel manifesto). */
@@ -56,7 +56,7 @@ export default function RotatingLogoE({
   const box: CSSProperties = { width: dim, height: dim };
   const reduceMotion = useReducedMotion();
   const scrollRotationEnabled = rotationMode === "motionScroll" && !reduceMotion;
-  const scrollRotate = useScrollLinkedRotation(scrollRotationEnabled);
+  const sharedScrollRotate = useScrollRotationMotionValue();
 
   const imageClass =
     rotationMode === "motionScroll"
@@ -74,7 +74,7 @@ export default function RotatingLogoE({
       {rotationMode === "motionScroll" ? (
         <motion.span
           className="absolute inset-0 block"
-          style={{ rotate: scrollRotationEnabled ? scrollRotate : 0 }}
+          style={{ rotate: scrollRotationEnabled ? sharedScrollRotate : 0 }}
         >
           <Image
             src="/stattewordmark.png"

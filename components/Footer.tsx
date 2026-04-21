@@ -47,6 +47,8 @@ export default function Footer() {
         <RotatingLogoE
           size="clamp(5.75rem, 5vw + 3.5rem, 7rem)"
           className="opacity-[0.94]"
+          rotationMode="motionScroll"
+          imageSizes="(max-width: 768px) 160px, 200px"
         />
       </div>
     </footer>

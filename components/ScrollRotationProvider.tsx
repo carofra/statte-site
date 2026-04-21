@@ -1,32 +1,45 @@
 "use client";
 
-import { useMotionValue } from "framer-motion";
-import { useEffect } from "react";
+import type { MotionValue } from "framer-motion";
+import { useMotionValue, useReducedMotion } from "framer-motion";
+import { createContext, useContext, useEffect } from "react";
+
+const ScrollRotationContext = createContext<MotionValue<number> | null>(null);
 
 /**
- * Rotazione quando non c’è scroll (gradi al secondo, senso orario).
- * ~5.4°/s ≈ giro completo in ~67s.
+ * Angolo condiviso (gradi) per tutte le “e” in `rotationMode="motionScroll"`:
+ * watermark e footer restano allineate e con la stessa velocità da scroll + idle.
  */
+export function useScrollRotationMotionValue(): MotionValue<number> {
+  const v = useContext(ScrollRotationContext);
+  if (!v) {
+    throw new Error(
+      "useScrollRotationMotionValue va usato dentro ScrollRotationProvider (layout).",
+    );
+  }
+  return v;
+}
+
+/** Rotazione idle (gradi al secondo, senso orario). */
 const IDLE_DEG_PER_SEC = 5.4;
 
-/** A scroll molto veloce, contributo extra massimo (°/s). */
 const MAX_SCROLL_BOOST_DEG_PER_SEC = 88;
-
-/** |velocity| tipica (px/s) per avvicinarsi al boost massimo. */
 const SCROLL_REF_PX_PER_SEC = 520;
-
-/** Sotto questa |velocity| (px/s) il contributo scroll è nullo (solo idle). */
 const SCROLL_VELOCITY_DEADZONE = 10;
 
-/**
- * Angolo di rotazione continuo: idle sempre molto lento; con scroll la velocità
- * cresce con l’intensità dello scroll (direzione = verso di scroll).
- */
-export function useScrollLinkedRotation(enabled: boolean) {
+export function ScrollRotationProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const rotate = useMotionValue(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (!enabled) return;
+    if (reduceMotion) {
+      rotate.set(0);
+      return;
+    }
 
     let prevY = typeof window !== "undefined" ? window.scrollY : 0;
     let prevT = performance.now();
@@ -70,7 +83,11 @@ export function useScrollLinkedRotation(enabled: boolean) {
       active = false;
       cancelAnimationFrame(rafId);
     };
-  }, [enabled, rotate]);
+  }, [reduceMotion, rotate]);
 
-  return rotate;
+  return (
+    <ScrollRotationContext.Provider value={rotate}>
+      {children}
+    </ScrollRotationContext.Provider>
+  );
 }
