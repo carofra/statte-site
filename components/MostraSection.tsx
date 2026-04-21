@@ -1,28 +1,24 @@
-import Container from "./Container";
+import LabProgramFrame from "@/components/lab/LabProgramFrame";
 import { mostraFinale } from "@/lib/stantteData";
+import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
 export default function MostraSection() {
   return (
-    <section id="mostra" className="py-32 md:py-44 lg:py-52 scroll-mt-20">
-      <Container>
-        <div className="flex flex-col gap-10 md:gap-14 text-left">
-          <div>
-            <p className="text-xl md:text-2xl uppercase tracking-wide text-foreground font-normal">
-              Mostra
-            </p>
-            <h2 className="mt-6 text-3xl md:text-6xl font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
-              {mostraFinale.title}
-            </h2>
-            <p className="mt-6 md:mt-8 text-lg md:text-2xl leading-snug text-foreground font-normal">
-              {mostraFinale.dates}
-            </p>
-          </div>
+    <section id="mostra" className="scroll-mt-20 bg-background py-16 text-black md:py-24 lg:py-28">
+      <LabProgramFrame>
+        <header className="text-left">
+          <h2 className={sectionEyebrowHeadingClass}>MOSTRA FINALE</h2>
+        </header>
 
-          <p className="max-w-3xl text-lg md:text-2xl leading-snug text-foreground font-normal">
+        <div className="border-y border-black py-8 text-left md:py-12 lg:py-16">
+          <p className="text-[10px] font-normal uppercase tracking-[0.32em] text-black/55 md:text-[11px] md:tracking-[0.38em]">
+            27—28 GIUGNO 2026
+          </p>
+          <p className="mt-6 max-w-3xl text-sm font-normal leading-relaxed text-black/90 md:mt-8 md:text-base md:leading-relaxed lg:text-lg">
             {mostraFinale.description}
           </p>
         </div>
-      </Container>
+      </LabProgramFrame>
     </section>
   );
 }

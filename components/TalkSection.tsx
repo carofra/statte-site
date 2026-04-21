@@ -1,32 +1,37 @@
-import Container from "./Container";
+import LabProgramFrame from "@/components/lab/LabProgramFrame";
 import { talk } from "@/lib/stantteData";
+import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
+
+const TALK_BODY =
+  "Un momento di confronto sul valore della residenza come spazio di ascolto e produzione: pratiche, territori e storie che si incontrano.";
 
 export default function TalkSection() {
   return (
-    <section id="talk" className="py-32 md:py-44 lg:py-52 scroll-mt-20">
-      <Container>
-        <div className="flex flex-col gap-10 md:gap-14 text-left">
-          <div>
-            <p className="text-xl md:text-2xl uppercase tracking-wide text-foreground font-normal">
-              Talk
-            </p>
-            <h2 className="mt-6 text-3xl md:text-6xl font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
-              {talk.title}
-            </h2>
-            <p className="mt-6 md:mt-8 text-lg md:text-2xl leading-snug text-foreground font-normal">
-              {talk.date}
-            </p>
-            <p className="mt-4 md:mt-5 text-sm md:text-base tracking-wide text-foreground font-normal leading-snug">
-              {talk.guests}
-            </p>
-          </div>
+    <section id="talk" className="scroll-mt-20 bg-background py-12 text-black md:py-16 lg:py-20">
+      <LabProgramFrame>
+        <header className="text-left">
+          <h2 className={sectionEyebrowHeadingClass}>ARTE E MOLISE</h2>
+        </header>
 
-          <p className="max-w-3xl text-lg md:text-2xl leading-snug text-foreground font-normal">
-            Un momento di confronto sul valore della residenza come spazio di ascolto e produzione:
-            pratiche, territori e storie che si incontrano.
-          </p>
+        <div className="border-y border-black py-6 md:py-8">
+          <div className="grid grid-cols-1 gap-6 text-left md:grid-cols-12 md:gap-x-10 md:gap-y-0 lg:gap-x-12">
+            <div className="md:col-span-7 lg:col-span-6">
+              <p className="text-[10px] font-normal uppercase leading-relaxed tracking-widest text-black/55 md:text-[11px] md:tracking-[0.45em]">
+                SABATO 20 GIUGNO — ORE 18:30
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 md:col-span-5 md:justify-center lg:col-span-6 lg:pt-1">
+              <p className="max-w-xl text-sm font-normal leading-relaxed text-black/90 md:text-base md:leading-relaxed lg:max-w-none">
+                {TALK_BODY}
+              </p>
+              <p className="max-w-xl text-xs font-normal leading-relaxed tracking-wide text-black/75 md:text-sm">
+                {talk.guests}
+              </p>
+            </div>
+          </div>
         </div>
-      </Container>
+      </LabProgramFrame>
     </section>
   );
 }

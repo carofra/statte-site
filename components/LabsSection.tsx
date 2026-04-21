@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
 import { labs } from "@/data/labs.js";
+import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
 const sortedLabs = [...labs].sort((a, b) => a.dateSort.localeCompare(b.dateSort));
 
@@ -13,26 +14,20 @@ export default function LabsSection() {
     <section
       id="lab"
       aria-labelledby="lab-laboratori-heading"
-      className="scroll-mt-20 bg-background pb-14 text-black md:pb-20"
+      className="scroll-mt-20 bg-background pb-12 text-black md:pb-16"
     >
-      {/* Spazio bianco forte dopo il manifesto */}
       <div className="pt-40 md:pt-52 lg:pt-64 xl:pt-72">
         <LabProgramFrame>
-          {/* Intestazione monumentale + narrativa: chiusa dalla prima linea del blocco lista */}
           <header className="text-left">
-            <h2
-              id="lab-laboratori-heading"
-              className={`${labProgramDisplayClass} text-[clamp(2.75rem,11vw,10.5rem)] leading-[0.82] [text-wrap:balance]`}
-            >
+            <h2 id="lab-laboratori-heading" className={sectionEyebrowHeadingClass}>
               LABORATORI
             </h2>
-            <p className="mt-8 max-w-2xl text-left text-lg font-normal leading-relaxed tracking-wide text-black/85 md:mt-10 md:text-xl md:leading-relaxed lg:mt-12 lg:w-1/2 lg:max-w-none">
+            <p className="max-w-2xl text-left text-base font-normal leading-relaxed tracking-wide text-black/85 md:text-lg md:leading-relaxed lg:w-1/2 lg:max-w-none">
               {LAB_INTRO}
             </p>
           </header>
 
-          {/* Lista programma: border-t chiude il blocco sopra e apre il registro Desina */}
-          <div className="mt-12 flex flex-col border-t border-black md:mt-14 lg:mt-16">
+          <div className="mt-8 flex flex-col border-t border-black md:mt-10 lg:mt-12">
             {sortedLabs.map((lab, index) => {
               const prev = index > 0 ? sortedLabs[index - 1] : null;
               const showDayHeader = !prev || prev.dateDisplay !== lab.dateDisplay;
@@ -40,9 +35,9 @@ export default function LabsSection() {
               return (
                 <Fragment key={lab.id}>
                   {showDayHeader && (
-                    <div className="border-b border-black py-6 md:py-8">
+                    <div className="border-b border-black py-4 md:py-5">
                       <p
-                        className={`${labProgramDisplayClass} text-[clamp(1.75rem,5vw,3.5rem)] text-black/80`}
+                        className={`${labProgramDisplayClass} text-2xl leading-none text-black/80 md:text-3xl`}
                       >
                         {lab.dateDisplay}
                       </p>
@@ -51,28 +46,28 @@ export default function LabsSection() {
 
                   <Link
                     href={`/lab/${lab.slug}`}
-                    className="group grid grid-cols-[minmax(2.25rem,2.75rem)_minmax(0,1fr)_minmax(1.75rem,2.5rem)] items-start gap-x-3 border-b border-black py-10 outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:gap-x-4 md:grid-cols-[minmax(3.5rem,5rem)_minmax(0,1fr)_minmax(2.5rem,4rem)] md:gap-x-10 md:py-14 lg:gap-x-14 lg:py-16"
+                    className="group grid grid-cols-[minmax(2.25rem,2.75rem)_minmax(0,1fr)_minmax(1.75rem,2.5rem)] items-start gap-x-3 border-b border-black py-6 outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:gap-x-4 md:grid-cols-[minmax(3.5rem,5rem)_minmax(0,1fr)_minmax(2.5rem,4rem)] md:gap-x-8 md:py-8 lg:gap-x-10"
                   >
-                    <span className="select-none pt-1 text-[9px] font-medium uppercase leading-snug tracking-[0.32em] text-black/45 sm:text-[10px] md:pt-2 md:text-[11px]">
+                    <span className="select-none pt-0.5 text-[9px] font-medium uppercase leading-snug tracking-[0.32em] text-black/45 sm:text-[10px] md:pt-1 md:text-[11px]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
                     <div className="min-w-0">
-                      <p className="mb-2 font-mono text-[11px] font-normal tabular-nums tracking-[0.04em] text-black/70 md:mb-3 md:text-xs">
+                      <p className="mb-1.5 font-mono text-[10px] font-normal tabular-nums tracking-[0.04em] text-black/70 md:mb-2 md:text-[11px]">
                         {lab.timeRange}
                       </p>
                       <h3
-                        className={`${labProgramDisplayClass} text-[clamp(1.65rem,5.2vw,5.75rem)] [text-wrap:balance]`}
+                        className={`${labProgramDisplayClass} text-4xl leading-none [text-wrap:balance] md:text-6xl`}
                       >
                         {lab.title}
                       </h3>
-                      <p className="mt-4 max-w-3xl text-base italic leading-snug tracking-[0.01em] text-black md:mt-5 md:text-lg lg:text-xl">
+                      <p className="mt-3 max-w-3xl text-sm italic leading-snug tracking-[0.01em] text-black md:mt-3.5 md:text-base">
                         {lab.curator}
                       </p>
                     </div>
 
                     <span
-                      className="select-none justify-self-end text-3xl leading-none transition-transform duration-300 ease-out group-hover:translate-x-2 group-hover:-translate-y-2 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0 sm:text-4xl md:pt-1 md:text-6xl lg:text-7xl"
+                      className="select-none justify-self-end text-2xl leading-none transition-transform duration-300 ease-out group-hover:translate-x-2 group-hover:-translate-y-2 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0 sm:text-3xl md:pt-0.5 md:text-5xl lg:text-6xl"
                       aria-hidden
                     >
                       ↗

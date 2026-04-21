@@ -1,4 +1,5 @@
 import LabProgramFrame, { labProgramDisplayCore } from "@/components/lab/LabProgramFrame";
+import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
 type Phase = {
   date: string;
@@ -43,18 +44,11 @@ export default function ProgrammaSection() {
   return (
     <section id="programma" className="scroll-mt-20 bg-background py-24 text-foreground md:py-32 lg:py-40">
       <LabProgramFrame tone="foreground">
-        <header className="max-w-3xl text-left">
-          <p className="text-[10px] font-normal uppercase tracking-[0.42em] text-foreground/55 md:text-[11px]">
-            Stattə · Residenza · 2026
-          </p>
-          <h2
-            className={`${labProgramDisplayCore} mt-4 text-[clamp(2.5rem,9vw,7rem)] leading-[0.82] text-foreground [text-wrap:balance] md:mt-5`}
-          >
-            Programma
-          </h2>
+        <header className="text-left">
+          <h2 className={sectionEyebrowHeadingClass}>PROGRAMMA</h2>
         </header>
 
-        <div className="mt-14 flex flex-col md:mt-16 lg:mt-20">
+        <div className="flex flex-col">
           {PHASES.map((phase) => (
             <article key={phase.date + phase.title} className="border-t border-foreground">
               <div className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] md:items-start md:gap-x-10 md:py-12 lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)] lg:gap-x-16 lg:py-14">

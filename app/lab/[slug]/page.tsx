@@ -1,3 +1,4 @@
+import LabBookingPanel from "@/components/lab/LabBookingPanel";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
 import { labs } from "@/data/labs.js";
 import type { Metadata } from "next";
@@ -33,11 +34,11 @@ export default async function LabPage({ params }: Props) {
             href="/#lab"
             className="inline-block border-b border-transparent pb-0.5 text-[10px] font-normal uppercase tracking-[0.38em] text-black transition-colors hover:border-black"
           >
-            ← Elenco lab
+            ← ELENCO LAB
           </Link>
         </nav>
 
-        <header className="border-b border-black py-12 md:py-16 lg:py-20">
+        <header className="border-b border-black py-10 md:py-12 lg:py-14">
           <p className="text-[10px] font-normal uppercase tracking-[0.42em] text-black/50 md:text-[11px]">
             Laboratorio · Stattə 2026
           </p>
@@ -47,32 +48,29 @@ export default async function LabPage({ params }: Props) {
             <span>{lab.timeRange}</span>
           </p>
           <h1
-            className={`${labProgramDisplayClass} mt-5 text-[clamp(2.35rem,10vw,8rem)] [text-wrap:balance] md:mt-6`}
+            className={`${labProgramDisplayClass} mt-5 text-5xl leading-none [text-wrap:balance] md:mt-6 md:text-7xl`}
           >
             {lab.title}
           </h1>
-          <p className="mt-6 max-w-3xl text-lg italic leading-snug text-black md:mt-8 md:text-2xl lg:text-3xl">
-            <span>{lab.curator}</span>
-            <span className="ml-2 inline-block translate-y-px text-2xl not-italic md:text-3xl" aria-hidden>
-              ↗
-            </span>
+          <p className="mt-5 max-w-3xl text-base italic leading-snug text-black md:mt-6 md:text-lg">
+            {lab.curator}
           </p>
         </header>
 
-        <article className="border-b border-black py-12 md:py-16 lg:py-20">
-          <p className="max-w-2xl text-base font-normal leading-[1.7] text-black md:text-lg md:leading-[1.75]">
-            {lab.description}
-          </p>
-        </article>
-
-        <footer className="pt-10 md:pt-12">
-          <Link
-            href="/#lab"
-            className="inline-block border-b border-black pb-1 text-[10px] font-normal uppercase tracking-[0.38em] text-black"
-          >
-            Torna all&apos;elenco
-          </Link>
-        </footer>
+        <div className="border-b border-black py-8 md:py-10 lg:py-12">
+          <div className="md:grid md:grid-cols-12 md:gap-8 lg:gap-10">
+            <div className="md:col-span-8">
+              <article>
+                <p className="text-lg font-normal leading-relaxed text-black md:text-xl md:leading-relaxed lg:text-2xl lg:leading-relaxed">
+                  {lab.description}
+                </p>
+              </article>
+            </div>
+            <div className="md:col-span-4">
+              <LabBookingPanel dateDisplay={lab.dateDisplay} timeRange={lab.timeRange} />
+            </div>
+          </div>
+        </div>
       </LabProgramFrame>
     </main>
   );
