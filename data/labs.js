@@ -1,5 +1,5 @@
 /**
- * Elenco laboratori Stattə (dati statici).
+ * Elenco laboratori Stattð (dati statici).
  * Date e orari sono **segnaposto** finché il programma non è definitivo.
  * @type {Array<{
  *   id: string;

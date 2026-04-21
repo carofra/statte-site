@@ -14,9 +14,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const lab = labs.find((l) => l.slug === slug);
-  if (!lab) return { title: "Lab · Stattə" };
+  if (!lab) return { title: "Lab · Stattð" };
   return {
-    title: `${lab.title} · Lab · Stattə`,
+    title: `${lab.title} · Lab · Stattð`,
     description: lab.description,
   };
 }
@@ -40,7 +40,7 @@ export default async function LabPage({ params }: Props) {
 
         <header className="border-b border-black py-10 md:py-12 lg:py-14">
           <p className="text-[10px] font-normal uppercase tracking-[0.42em] text-black/50 md:text-[11px]">
-            Laboratorio · Stattə 2026
+            Laboratorio · Stattð 2026
           </p>
           <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-xs font-normal tabular-nums tracking-[0.04em] text-black/70 md:mt-5 md:text-sm">
             <span>{lab.dateDisplay}</span>

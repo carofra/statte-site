@@ -6,9 +6,10 @@ import { ScrollRotationProvider } from "@/components/ScrollRotationProvider";
 import ScrollToTopOnReload from "@/components/ScrollToTopOnReload";
 
 export const metadata: Metadata = {
+  /** Schwa (ə) nel titolo scheda/SERP; nel sito visibile resta ð per Providence Sans. */
   title: "Stattə - Residenza Artistica",
   description:
-    "Stattə è una residenza artistica in Molise (15-28 giugno 2026): ascolto, dialogo e produzione artistica.",
+    "Stattð è una residenza artistica in Molise (15-28 giugno 2026): ascolto, dialogo e produzione artistica.",
 };
 
 export default function RootLayout({

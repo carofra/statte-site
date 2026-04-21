@@ -50,7 +50,7 @@ export default function RotatingLogoE({
   rotationMode = "css",
   title,
   tabIndex,
-  "aria-label": ariaLabel = "Stattə",
+  "aria-label": ariaLabel = "Stattð",
 }: RotatingLogoEProps) {
   const dim = sizeToCss(size);
   const box: CSSProperties = { width: dim, height: dim };

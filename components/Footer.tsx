@@ -26,7 +26,7 @@ export default function Footer() {
                   href="https://www.instagram.com/statte_arte_inatto/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Stattə su Instagram (si apre in una nuova scheda)"
+                  aria-label="Stattð su Instagram (si apre in una nuova scheda)"
                 >
                   instagram
                 </a>
@@ -35,8 +35,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 max-w-[calc(100%-8rem)] text-[10px] font-normal lowercase tracking-[0.42em] text-foreground md:max-w-[calc(100%-9rem)] lg:max-w-none">
-          stattə &copy; 2026
+        <div
+          className="mt-12 max-w-[calc(100%-8rem)] text-[10px] font-normal lowercase tracking-[0.42em] text-foreground md:max-w-[calc(100%-9rem)] lg:max-w-none"
+          aria-label="stattð, copyright 2026"
+        >
+          stattð &copy; 2026
         </div>
       </Container>
 

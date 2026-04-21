@@ -8,7 +8,7 @@ export default function CosESection() {
           <h1 className="flex w-full justify-center">
             <Image
               src="/stattelogo.png"
-              alt="Stattə"
+              alt="Stattð"
               width={2400}
               height={800}
               priority
