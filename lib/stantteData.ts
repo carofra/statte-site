@@ -17,21 +17,6 @@ export const artists: string[] = [
   "Tommasina Giuliasi",
 ];
 
-export const labs: Array<{ title: string; curator: string }> = [
-  { title: "EDITORIA CREATIVA", curator: "Giulia Veneziale" },
-  { title: "CACCIATORI DI OMBRE", curator: "Raffaella Mastrogiuseppe" },
-  { title: "COSTRUIRE IMMAGINI", curator: "Marco Di Prisco" },
-  { title: "VIAGGI NEI RITMI DEL SUD", curator: "Maria Martino" },
-  { title: "L'ARTE DEL RE-DESIGN", curator: "Giusi Cornacchione" },
-  {
-    title: "LA VISIONE DELLA MUSICA",
-    curator: "Lorenzo Mastrogiuseppe e Paolo Giarrusso",
-  },
-  { title: "DRAW & DRINK", curator: "Denny Vitulli" },
-  { title: "SPAZIO VIVO", curator: "Annarita Iammarone" },
-  { title: "OREFICERIA CREATIVA", curator: "Burgi Stellar" },
-];
-
 export const talk = {
   title: "Arte e Molise",
   date: "Sabato 20 Giugno",
