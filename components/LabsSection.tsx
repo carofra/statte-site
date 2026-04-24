@@ -30,14 +30,14 @@ export default function LabsSection() {
   return (
     <section
       id="lab"
-      aria-labelledby="lab-laboratori-heading"
+      aria-labelledby="lab-section-heading"
       className="scroll-mt-20 bg-background pb-16 text-[#1d1d1b] md:pb-24 lg:pb-28"
     >
       <div className="pt-40 md:pt-52 lg:pt-64 xl:pt-72">
         <LabProgramFrame>
           <header className="text-left">
-            <h2 id="lab-laboratori-heading" className={sectionEyebrowHeadingClass}>
-              LABORATORI
+            <h2 id="lab-section-heading" className={`${sectionEyebrowHeadingClass} normal-case`}>
+              Lab
             </h2>
             <p className="max-w-2xl text-left text-base font-normal leading-relaxed tracking-wide text-[#1d1d1b]/85 md:text-lg md:leading-relaxed lg:w-1/2 lg:max-w-none">
               {LAB_INTRO}

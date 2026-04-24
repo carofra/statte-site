@@ -19,6 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="h-full antialiased">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/ProvidenceSans-Regular.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/fonts/ProvidenceSans-Bold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="grain-page min-h-full flex flex-col bg-background text-foreground font-sans">
         <Script
           id="scroll-top-on-reload"

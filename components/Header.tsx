@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Container from "./Container";
 import { navItems } from "@/lib/stantteData";
 
@@ -42,6 +43,8 @@ function scrollToSectionId(id: string): ScrollBehavior {
 }
 
 export default function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>(navItems[0]?.id ?? "");
   /** Non sovrascrivere l'evidenziazione durante / subito dopo uno scroll programmatico da menu. */
@@ -89,12 +92,38 @@ export default function Header() {
     };
   }, [sectionIds]);
 
-  const onNavClick = useCallback((id: string) => {
-    setOpen(false);
-    setActiveId(id);
-    const behavior = scrollToSectionId(id);
-    ignoreSpyUntilRef.current = Date.now() + (behavior === "smooth" ? 900 : 80);
-  }, []);
+  const onNavClick = useCallback(
+    (id: string) => {
+      setOpen(false);
+      setActiveId(id);
+
+      if (pathname === "/") {
+        const behavior = scrollToSectionId(id);
+        ignoreSpyUntilRef.current = Date.now() + (behavior === "smooth" ? 900 : 80);
+        return;
+      }
+
+      router.push(`/#${id}`);
+      ignoreSpyUntilRef.current = Date.now() + 1600;
+
+      let attempts = 0;
+      const maxAttempts = 90;
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          const behavior = scrollToSectionId(id);
+          ignoreSpyUntilRef.current = Date.now() + (behavior === "smooth" ? 900 : 80);
+          return;
+        }
+        attempts += 1;
+        if (attempts < maxAttempts) {
+          requestAnimationFrame(tryScroll);
+        }
+      };
+      requestAnimationFrame(tryScroll);
+    },
+    [pathname, router],
+  );
 
   return (
     <header className="sticky top-0 z-[110] bg-background border-b border-foreground">
@@ -104,7 +133,7 @@ export default function Header() {
             {navItems.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.id}`}
+                href={`/#${item.id}`}
                 onClick={(e) => {
                   e.preventDefault();
                   onNavClick(item.id);
@@ -141,7 +170,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <a
                   key={item.id}
-                  href={`#${item.id}`}
+                  href={`/#${item.id}`}
                   onClick={(e) => {
                     e.preventDefault();
                     onNavClick(item.id);

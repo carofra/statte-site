@@ -28,22 +28,16 @@
   src: url("/fonts/ProvidenceSans-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
+  /* swap + preload in layout: testo leggibile subito, passaggio al custom appena pronto */
   font-display: swap;
 }
 
+/* Un solo @font-face per il file Bold (prima due regole duplicate scaricavano lo stesso file due volte). */
 @font-face {
   font-family: "Providence Sans";
   src: url("/fonts/ProvidenceSans-Bold.ttf") format("truetype");
   font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Providence Sans";
-  src: url("/fonts/ProvidenceSans-Bold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 600 700;
   font-display: swap;
 }
 
