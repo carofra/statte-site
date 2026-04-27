@@ -5,7 +5,7 @@ import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 const TALK_BODY =
   "Un momento di confronto sul valore della residenza come spazio di ascolto e produzione: pratiche, territori e storie che si incontrano.";
 
-const guestsLine = talk.guests.replace(/^\s*Ospiti\s*[-–]\s*/i, "").trim();
+const guestsLine = talk.guests.trim();
 
 export default function TalkSection() {
   return (
@@ -22,10 +22,10 @@ export default function TalkSection() {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:items-start md:gap-x-12 lg:gap-x-16">
             <div className="md:col-span-5 lg:col-span-4">
               <p className="text-3xl font-normal uppercase leading-[1.05] tracking-[-0.02em] text-[#1d1d1b] md:text-4xl lg:text-5xl">
-                SABATO 20 GIUGNO
+                {talk.dateLine}
               </p>
               <p className="mt-3 text-sm font-normal tabular-nums tracking-wide text-[#1d1d1b]/55 md:text-base">
-                ORE 17:00
+                {talk.timeLine}
               </p>
             </div>
 
@@ -33,7 +33,7 @@ export default function TalkSection() {
               <h3
                 className={`${labProgramDisplayClass} text-4xl leading-none text-[#1d1d1b] [text-wrap:balance] md:text-6xl lg:text-7xl`}
               >
-                ARTE E MOLISE
+                {talk.title.toUpperCase()}
               </h3>
               <p className="mt-8 max-w-2xl text-base font-normal leading-relaxed text-[#1d1d1b]/90 md:mt-10 md:text-lg md:leading-relaxed">
                 {TALK_BODY}

@@ -23,13 +23,16 @@ export const artists: string[] = [
 
 export const talk = {
   title: "Arte e Molise",
-  date: "Sabato 20 Giugno",
-  guests: "Ospiti - Le Fonticelle - Sagra Futuro",
+  /** Riga data (stesso stile usato in TalkSection). */
+  dateLine: "Sabato 20 giugno 2026",
+  /** Riga orario. */
+  timeLine: "ORE 17:00",
+  guests: "Le Fonticelle · Sagra Futuro",
 };
 
 export const mostraFinale = {
   title: "MOSTRA FINALE",
-  dates: "Sabato 27 e domenica 28 Giugno",
+  dates: "Sabato 27 e domenica 28 giugno 2026",
   description:
     "Una restituzione finale in cui le pratiche dei laboratori diventano segni, gesti e immagini: un incontro tra ricerca, comunità e visione.",
 };

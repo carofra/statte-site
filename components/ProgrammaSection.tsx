@@ -1,44 +1,80 @@
+import type { ReactNode } from "react";
 import LabProgramFrame, { labProgramDisplayCore } from "@/components/lab/LabProgramFrame";
 import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
 type Phase = {
   date: string;
   title: string;
-  body: string;
-  labAnchor?: boolean;
+  body: ReactNode;
 };
+
+const labLinkClass =
+  "ml-1 inline-block border-b border-foreground/40 text-sm font-normal tracking-wide text-foreground underline-offset-4 transition-colors hover:border-foreground hover:text-foreground md:text-base";
 
 const PHASES: Phase[] = [
   {
     date: "15 GIU",
     title: "INIZIO RESIDENZA",
-    body: "Arrivo degli artisti e prima esplorazione del territorio molisano.",
+    body: (
+      <>
+        Apertura della residenza: arrivo degli artisti e avvio dei laboratori sul territorio (mattina e
+        pomeriggio).
+      </>
+    ),
   },
   {
     date: "16—19 GIU",
     title: "PRATICHE E LABORATORI",
-    body: "Attivazione dei workshop sul territorio.",
-    labAnchor: true,
+    body: (
+      <>
+        Workshop quotidiani tra mattina e pomeriggio - musica, editoria, immagine, corpo e comunità in dialogo con il
+        Molise.
+        <a href="#lab" className={labLinkClass}>
+          → Calendario lab
+        </a>
+      </>
+    ),
   },
   {
     date: "20 GIU",
     title: "TALK: ARTE E MOLISE",
-    body: "Un momento di confronto sul valore della residenza come spazio di ascolto e produzione.",
+    body: (
+      <>
+        Sabato 20: laboratori al mattino, poi alle <strong className="font-medium">17:00</strong> il talk pubblico con
+        ospiti da Le Fonticelle e Sagra Futuro.
+        <a href="#talk" className={labLinkClass}>
+          → Dettagli talk
+        </a>
+      </>
+    ),
   },
   {
     date: "21—26 GIU",
-    title: "PRODUZIONE CONDIVISA",
-    body: "Gli artisti e la comunità lavorano alle opere finali.",
+    title: "RESIDENZA E LAB",
+    body: (
+      <>
+        Il programma dei laboratori prosegue fino al 26 giugno - ultimo giorno di laboratori prima della mostra
+        (musichiamo, pittura, viaggi nei ritmi del Sud, architetture dell&apos;anima e altre pratiche).
+        <a href="#lab" className={labLinkClass}>
+          → Calendario lab
+        </a>
+      </>
+    ),
   },
   {
     date: "27—28 GIU",
     title: "MOSTRA FINALE",
-    body: "Restituzione delle pratiche nate nel tempo condiviso.",
+    body: (
+      <>
+        Chiusura in forma espositiva: sabato 27 e domenica 28 giugno restituzione delle pratiche condivise nella
+        residenza.
+        <a href="#mostra" className={labLinkClass}>
+          → Mostra
+        </a>
+      </>
+    ),
   },
 ];
-
-const labLinkClass =
-  "ml-1 inline-block border-b border-foreground/40 text-sm font-normal tracking-wide text-foreground underline-offset-4 transition-colors hover:border-foreground hover:text-foreground md:text-base";
 
 export default function ProgrammaSection() {
   return (
@@ -66,14 +102,6 @@ export default function ProgrammaSection() {
                   </h3>
                   <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-foreground/90 md:mt-5 md:text-lg md:leading-relaxed">
                     {phase.body}
-                    {phase.labAnchor ? (
-                      <>
-                        {" "}
-                        <a href="#lab" className={labLinkClass}>
-                          → Scopri tutti i lab
-                        </a>
-                      </>
-                    ) : null}
                   </p>
                 </div>
               </div>
