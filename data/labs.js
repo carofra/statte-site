@@ -172,4 +172,15 @@ export const labScheduleSorted = [...labSchedule]
     return a.order - b.order;
   });
 
+/**
+ * Prima data/orario in calendario per lo slug (sidebar pagina lab e prenotazione).
+ * @param {string} slug
+ * @returns {{ dateDisplay: string; timeRange: string }}
+ */
+export function getFirstSessionForSlug(slug) {
+  const row = labScheduleSorted.find((r) => r.slug === slug);
+  if (!row) return { dateDisplay: "—", timeRange: "—" };
+  return { dateDisplay: row.dateDisplay, timeRange: row.timeRange };
+}
+
 export default labs;
