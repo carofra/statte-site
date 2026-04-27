@@ -25,7 +25,7 @@ export default function TalkSection() {
                 SABATO 20 GIUGNO
               </p>
               <p className="mt-3 text-sm font-normal tabular-nums tracking-wide text-[#1d1d1b]/55 md:text-base">
-                ORE 18:30
+                ORE 17:00
               </p>
             </div>
 
