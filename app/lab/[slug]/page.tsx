@@ -1,6 +1,6 @@
 import LabBookingPanel from "@/components/lab/LabBookingPanel";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
-import { getFirstSessionForSlug, labs } from "@/data/labs.js";
+import { labs } from "@/data/labs.js";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,8 +26,6 @@ export default async function LabPage({ params }: Props) {
   const lab = labs.find((l) => l.slug === slug);
   if (!lab) notFound();
 
-  const { dateDisplay, timeRange } = getFirstSessionForSlug(lab.slug);
-
   return (
     <main className="bg-background pb-20 pt-6 text-black md:pb-28 md:pt-10">
       <LabProgramFrame>
@@ -43,11 +41,6 @@ export default async function LabPage({ params }: Props) {
         <header className="border-b border-black py-10 md:py-12 lg:py-14">
           <p className="text-[10px] font-normal tracking-[0.42em] text-black/50 md:text-[11px]">
             <span className="uppercase">Laboratorio</span> · statte 2026
-          </p>
-          <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-xs font-normal tabular-nums tracking-[0.04em] text-black/70 md:mt-5 md:text-sm">
-            <span>{dateDisplay}</span>
-            <span className="text-black/40">·</span>
-            <span>{timeRange}</span>
           </p>
           <h1
             className={`${labProgramDisplayClass} mt-5 text-5xl leading-none [text-wrap:balance] md:mt-6 md:text-7xl`}
@@ -69,7 +62,7 @@ export default async function LabPage({ params }: Props) {
               </article>
             </div>
             <div className="md:col-span-4">
-              <LabBookingPanel labTitle={lab.title} dateDisplay={dateDisplay} timeRange={timeRange} />
+              <LabBookingPanel labTitle={lab.title} />
             </div>
           </div>
         </div>

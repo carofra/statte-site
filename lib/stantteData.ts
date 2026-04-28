@@ -15,11 +15,12 @@ export const navItems: NavItem[] = [
 
 export const artists: string[] = [
   "Allison",
-  "Marta Ant",
   "Francesco Della Pelle",
   "Lucrezia Berardi",
+  "Marta Ant",
+  "Martina Rotella",
   "Tommasina Giuliasi",
-];
+].sort((a, b) => a.localeCompare(b, "it"));
 
 export const talk = {
   title: "Arte e Molise",

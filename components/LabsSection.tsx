@@ -10,23 +10,15 @@ const LAB_INTRO =
 
 type ScheduleRow = (typeof labScheduleSorted)[number];
 
-type DateRow = { kind: "date"; key: string; label: string };
 type SessionRow = { kind: "session"; key: string; schedule: ScheduleRow; index: number };
-type ListRow = DateRow | SessionRow;
 
-function buildLabListRows(): ListRow[] {
-  const rows: ListRow[] = [];
-  let prevDate: string | null = null;
-  let sessionIndex = 0;
-  labScheduleSorted.forEach((schedule) => {
-    if (schedule.dateDisplay !== prevDate) {
-      rows.push({ kind: "date", key: `date-${schedule.dateDisplay}`, label: schedule.dateDisplay });
-      prevDate = schedule.dateDisplay;
-    }
-    rows.push({ kind: "session", key: schedule.id, schedule, index: sessionIndex });
-    sessionIndex += 1;
-  });
-  return rows;
+function buildLabListRows(): SessionRow[] {
+  return labScheduleSorted.map((schedule, index) => ({
+    kind: "session",
+    key: schedule.id,
+    schedule,
+    index,
+  }));
 }
 
 const rowGridClass =
@@ -53,19 +45,9 @@ export default function LabsSection() {
           </header>
 
           <ul className="m-0 mt-8 list-none border-t border-[#1d1d1b] p-0 md:mt-10 lg:mt-12">
-            {listRows.map((row) =>
-              row.kind === "date" ? (
-                <li key={row.key} className="m-0 list-none border-b border-[#1d1d1b] p-0">
-                  <div className="w-full py-6 md:py-8">
-                    <p className="text-left text-sm font-normal uppercase tracking-widest text-[#1d1d1b]/80 tabular-nums">
-                      {row.label}
-                    </p>
-                  </div>
-                </li>
-              ) : (
-                <SessionListItem key={row.key} row={row} />
-              ),
-            )}
+            {listRows.map((row) => (
+              <SessionListItem key={row.key} row={row} />
+            ))}
           </ul>
         </LabProgramFrame>
       </div>
@@ -87,9 +69,6 @@ function SessionListItem({ row }: { row: SessionRow }) {
       </span>
 
       <div className="min-w-0">
-        <p className="mb-1.5 font-mono text-[10px] font-normal tabular-nums tracking-[0.04em] text-[#1d1d1b]/70 md:mb-2 md:text-[11px]">
-          {s.timeRange}
-        </p>
         <h3 className={`${labProgramDisplayClass} text-4xl leading-none text-[#1d1d1b] [text-wrap:balance] md:text-6xl`}>
           {title}
         </h3>

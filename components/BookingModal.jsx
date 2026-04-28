@@ -17,8 +17,6 @@ function web3FormsMessage(data) {
 /**
  * @typedef {object} BookingModalProps
  * @property {string} labTitle
- * @property {string} dateDisplay
- * @property {string} timeRange
  * @property {boolean} isOpen
  * @property {() => void} onClose
  */
@@ -27,7 +25,7 @@ function web3FormsMessage(data) {
  * Drawer destro (stile listing tipo desina.it).
  * @param {BookingModalProps} props
  */
-export default function BookingModal({ labTitle, dateDisplay, timeRange, isOpen, onClose }) {
+export default function BookingModal({ labTitle, isOpen, onClose }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -97,8 +95,6 @@ export default function BookingModal({ labTitle, dateDisplay, timeRange, isOpen,
       "Nuova richiesta di prenotazione",
       "",
       `Laboratorio: ${labTitle}`,
-      `Data: ${dateDisplay}`,
-      `Orari: ${timeRange}`,
       "",
       message.trim() ? `Messaggio (opzionale):\n${message.trim()}` : "Messaggio (opzionale): —",
     ].join("\n");
@@ -112,7 +108,7 @@ export default function BookingModal({ labTitle, dateDisplay, timeRange, isOpen,
         },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `Prenotazione — ${labTitle} · ${dateDisplay} · ${timeRange}`,
+          subject: `Prenotazione — ${labTitle}`,
           name: name.trim(),
           email: emailTrimmed,
           replyto: emailTrimmed,

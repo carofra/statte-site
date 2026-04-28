@@ -5,11 +5,9 @@ import BookingModal from "@/components/BookingModal";
 
 type Props = {
   labTitle: string;
-  dateDisplay: string;
-  timeRange: string;
 };
 
-export default function LabBookingPanel({ labTitle, dateDisplay, timeRange }: Props) {
+export default function LabBookingPanel({ labTitle }: Props) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const closeModal = useCallback(() => setModalOpen(false), []);
@@ -18,21 +16,6 @@ export default function LabBookingPanel({ labTitle, dateDisplay, timeRange }: Pr
     <>
       <aside className="mt-12 border-t border-black pt-10 md:mt-0 md:border-t-0 md:pt-0">
         <div className="sticky top-24 space-y-10 self-start md:top-28 lg:top-32 lg:space-y-12">
-          <dl className="space-y-8 text-black">
-            <div>
-              <dt className="text-[10px] font-normal uppercase tracking-[0.32em] text-black/50">Data</dt>
-              <dd className="mt-2 font-mono text-sm font-normal tabular-nums tracking-wide text-black md:text-base">
-                {dateDisplay}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-[10px] font-normal uppercase tracking-[0.32em] text-black/50">Orari</dt>
-              <dd className="mt-2 font-mono text-sm font-normal tabular-nums tracking-wide text-black md:text-base">
-                {timeRange}
-              </dd>
-            </div>
-          </dl>
-
           <button
             type="button"
             onClick={() => setModalOpen(true)}
@@ -43,13 +26,7 @@ export default function LabBookingPanel({ labTitle, dateDisplay, timeRange }: Pr
         </div>
       </aside>
 
-      <BookingModal
-        labTitle={labTitle}
-        dateDisplay={dateDisplay}
-        timeRange={timeRange}
-        isOpen={modalOpen}
-        onClose={closeModal}
-      />
+      <BookingModal labTitle={labTitle} isOpen={modalOpen} onClose={closeModal} />
     </>
   );
 }

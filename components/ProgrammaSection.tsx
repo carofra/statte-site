@@ -23,7 +23,7 @@ const PHASES: Phase[] = [
     ),
   },
   {
-    date: "16—19 GIU",
+    date: "16-19 GIU",
     title: "PRATICHE E LABORATORI",
     body: (
       <>
@@ -49,7 +49,7 @@ const PHASES: Phase[] = [
     ),
   },
   {
-    date: "21—26 GIU",
+    date: "21-26 GIU",
     title: "RESIDENZA E LAB",
     body: (
       <>
@@ -62,7 +62,7 @@ const PHASES: Phase[] = [
     ),
   },
   {
-    date: "27—28 GIU",
+    date: "27-28 GIU",
     title: "MOSTRA FINALE",
     body: (
       <>
