@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { WatermarkRotatingMark } from "@/components/GlobalWatermarkLogo";
 
@@ -27,8 +27,11 @@ export default function ScrollGatedGlobalWatermark() {
       setVisible(true);
       return;
     }
+    const header = document.querySelector("header");
+    const headerBottom = header instanceof HTMLElement ? header.getBoundingClientRect().bottom : 0;
     const bottom = hero.getBoundingClientRect().bottom;
-    setVisible(bottom <= HERO_OUT_EPS);
+    // Trigger quando l'hero è uscito sotto l'header sticky (non solo a y=0 viewport).
+    setVisible(bottom <= headerBottom + HERO_OUT_EPS);
   }, []);
 
   useEffect(() => {
@@ -65,35 +68,30 @@ export default function ScrollGatedGlobalWatermark() {
       };
 
   return (
-    <AnimatePresence>
-      {visible ? (
-        <motion.div
-          key="global-watermark"
-          className="pointer-events-none fixed inset-0 z-[50] flex items-center justify-center overflow-hidden motion-reduce:hidden"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={
-            reduceMotion
-              ? { opacity: 0, transition: { duration: 0 } }
-              : { opacity: 0, transition: { duration: 0.42, ease: [0.4, 0, 0.2, 1] } }
-          }
-          aria-hidden
-        >
-          <motion.div
-            initial={
-              reduceMotion
-                ? { scale: 1, opacity: 1 }
-                : { scale: ENTER_SCALE_FROM, opacity: 0.74 }
-            }
-            animate={{ scale: 1, opacity: 1 }}
-            transition={enterTransition}
-            style={{ transformOrigin: "50% 50%" }}
-            className="flex items-center justify-center"
-          >
-            <WatermarkRotatingMark priority />
-          </motion.div>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
+    <motion.div
+      className="pointer-events-none fixed inset-0 z-[50] flex items-center justify-center overflow-hidden motion-reduce:hidden"
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: visible ? 1 : 0,
+        transition: reduceMotion
+          ? { duration: 0 }
+          : { duration: visible ? 0.28 : 0.42, ease: visible ? [0.22, 1, 0.36, 1] : [0.4, 0, 0.2, 1] },
+      }}
+      aria-hidden
+    >
+      <motion.div
+        initial={
+          reduceMotion
+            ? { scale: 1, opacity: 1 }
+            : { scale: ENTER_SCALE_FROM, opacity: 0.74 }
+        }
+        animate={{ scale: visible ? 1 : ENTER_SCALE_FROM, opacity: visible ? 1 : 0.74 }}
+        transition={enterTransition}
+        style={{ transformOrigin: "50% 50%" }}
+        className="flex items-center justify-center"
+      >
+        <WatermarkRotatingMark priority />
+      </motion.div>
+    </motion.div>
   );
 }
