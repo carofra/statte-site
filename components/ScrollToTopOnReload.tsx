@@ -18,6 +18,12 @@ function isReloadNavigation(): boolean {
   }
 }
 
+function clearHashOnReload() {
+  if (!window.location.hash) return;
+  const cleanUrl = `${window.location.pathname}${window.location.search}`;
+  history.replaceState(null, "", cleanUrl);
+}
+
 /**
  * Dopo un ricaricamento (F5 / cmd+R) porta lo scroll in cima e disattiva il ripristino automatico del browser.
  * Backup rispetto allo script `beforeInteractive` nel layout (alcuni browser ripristinano dopo).
@@ -28,8 +34,10 @@ export default function ScrollToTopOnReload() {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
+    clearHashOnReload();
     window.scrollTo(0, 0);
     const id = requestAnimationFrame(() => {
+      clearHashOnReload();
       window.scrollTo(0, 0);
     });
     return () => cancelAnimationFrame(id);

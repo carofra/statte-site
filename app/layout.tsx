@@ -40,7 +40,7 @@ export default function RootLayout({
         <Script
           id="scroll-top-on-reload"
           strategy="beforeInteractive"
-        >{`(function(){try{var n=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];var r=n&&n.type==="reload";var l=typeof performance!=="undefined"&&performance.navigation&&performance.navigation.type===1;if(r||l){if("scrollRestoration"in history)history.scrollRestoration="manual";window.scrollTo(0,0);}}catch(_){}})();`}</Script>
+        >{`(function(){try{var n=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];var r=n&&n.type==="reload";var l=typeof performance!=="undefined"&&performance.navigation&&performance.navigation.type===1;if(r||l){if("scrollRestoration"in history)history.scrollRestoration="manual";if(window.location.hash){history.replaceState(null,"",window.location.pathname+window.location.search);}window.scrollTo(0,0);}}catch(_){}})();`}</Script>
         <ScrollToTopOnReload />
         <ScrollRotationProvider>
           <ScrollGatedGlobalWatermark />
