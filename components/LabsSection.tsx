@@ -57,10 +57,9 @@ export default function LabsSection() {
 
 function SessionListItem({ row }: { row: SessionRow }) {
   const s = row.schedule;
-  const workshop = s.slug ? workshopBySlug[s.slug] : undefined;
-  const title = workshop?.title ?? s.displayTitle ?? "";
-  const curator = workshop?.curator ?? s.displayCurator ?? "";
-  const labHref = s.slug ? `/lab/${s.slug}` : "#";
+  const workshop = workshopBySlug[s.slug];
+  const title = workshop?.title ?? "";
+  const curator = workshop?.curator ?? "";
 
   const inner = (
     <>
@@ -90,15 +89,9 @@ function SessionListItem({ row }: { row: SessionRow }) {
 
   return (
     <li className="m-0 list-none border-b border-[#1d1d1b] p-0">
-      {s.externalHref ? (
-        <a href={s.externalHref} className={rowGridClass}>
-          {inner}
-        </a>
-      ) : (
-        <Link href={labHref} className={rowGridClass}>
-          {inner}
-        </Link>
-      )}
+      <Link href={`/lab/${s.slug}`} className={rowGridClass}>
+        {inner}
+      </Link>
     </li>
   );
 }
