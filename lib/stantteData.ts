@@ -13,6 +13,12 @@ export const navItems: NavItem[] = [
   { id: "mostra", label: "Mostra" },
 ];
 
+/**
+ * Prenotazione laboratori (Eventbrite), solo se manca `eventbriteUrl` sul singolo lab e
+ * `NEXT_PUBLIC_EVENTBRITE_URL` in .env / Vercel.
+ */
+export const EVENTBRITE_BOOKING_FALLBACK = "";
+
 export const artists: string[] = [
   "Allison",
   "Francesco Della Pelle",
