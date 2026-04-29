@@ -4,7 +4,7 @@
  * della pagina evento (es. https://www.eventbrite.it/e/... ) e lo metti in `eventbriteUrl` sul lab.
  * Se `eventbriteUrl` manca, si usano `NEXT_PUBLIC_EVENTBRITE_URL` e poi `EVENTBRITE_BOOKING_FALLBACK` in lib/stantteData.ts.
  *
- * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; eventbriteUrl?: string }} Workshop
+ * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; eventbriteUrl?: string; bookingNotice?: string }} Workshop
  */
 
 /** Definizioni laboratorio (ordine nel file libero; `labs` esportato è alfabetico per titolo). */
@@ -24,6 +24,8 @@ const labsSource = [
     curator: "Schasa Ricci",
     description:
       "Il laboratorio nasce dal desiderio di esplorare il concetto di \"Casa\" oltre la sua dimensione materiale. La casa è qui metafora del Sé: territorio emotivo, archivio di ricordi e confine tra mondo interno ed esterno. Attraverso linguaggi artistici figurativi, i partecipanti danno forma visibile alle proprie sensazioni, in un ambiente protetto e stimolante.",
+    bookingNotice:
+      "Laboratorio riservato ai pazienti del Centro di Salute Mentale del Molise. Non è disponibile per prenotazione pubblica.",
   },
   {
     id: "editoria-creativa",

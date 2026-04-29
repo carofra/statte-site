@@ -6,9 +6,15 @@ const btnClass =
 type Props = {
   /** URL pagina Eventbrite solo per questo lab (da data/labs.js). */
   eventbriteUrl?: string;
+  /**
+   * Se presente, sostituisce il bottone di prenotazione con questa nota
+   * (es. laboratorio riservato a un'utenza specifica).
+   */
+  bookingNotice?: string;
 };
 
-export default function LabBookingPanel({ eventbriteUrl }: Props) {
+export default function LabBookingPanel({ eventbriteUrl, bookingNotice }: Props) {
+  const notice = typeof bookingNotice === "string" ? bookingNotice.trim() : "";
   const fromLab = typeof eventbriteUrl === "string" ? eventbriteUrl.trim() : "";
   const fromEnv =
     typeof process.env.NEXT_PUBLIC_EVENTBRITE_URL === "string"
@@ -19,7 +25,17 @@ export default function LabBookingPanel({ eventbriteUrl }: Props) {
   return (
     <aside className="mt-12 w-full border-t border-black pt-10 md:mt-0 md:border-t-0 md:pt-0">
       <div className="sticky top-24 w-full md:top-28 lg:top-32">
-        {bookingUrl ? (
+        {notice ? (
+          <div
+            role="note"
+            className="border-t border-black/40 pt-4 text-left text-xs font-normal leading-relaxed text-black/80 md:text-[13px] md:leading-relaxed"
+          >
+            <p className="m-0 text-[9px] font-medium uppercase tracking-[0.3em] text-black/50 md:text-[10px]">
+              Accesso riservato
+            </p>
+            <p className="mt-2 m-0">{notice}</p>
+          </div>
+        ) : bookingUrl ? (
           <a
             href={bookingUrl}
             target="_blank"
