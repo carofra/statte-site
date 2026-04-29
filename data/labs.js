@@ -47,7 +47,7 @@ const labsSource = [
     title: "CACCIATORI DI OMBRE",
     curator: "Raffaella Mastrogiuseppe",
     description:
-      "Il laboratorio unisce design e stampa analogica (tra cui la cianotipia) alla riscoperta del territorio molisano. I bambini conoscono il valore della sosta creativa: fermarsi, osservare un dettaglio, raccogliere una memoria e trasformarla in un segno indelebile attraverso la luce.",
+      "Il laboratorio unisce design e stampa analogica - la cianotipia - alla riscoperta del territorio molisano. I bambini conoscono il valore della sosta creativa: fermarsi, osservare un dettaglio, raccogliere una memoria e trasformarla in un segno indelebile attraverso la luce.",
   },
   {
     id: "l-arte-del-re-design",

@@ -17,8 +17,7 @@ const PHASES: Phase[] = [
     title: "INIZIO RESIDENZA",
     body: (
       <>
-        Apertura della residenza: arrivo degli artisti e avvio dei laboratori sul territorio (mattina e
-        pomeriggio).
+        Apertura della residenza: arrivo degli artisti e avvio dei laboratori sul territorio.
       </>
     ),
   },
@@ -27,7 +26,7 @@ const PHASES: Phase[] = [
     title: "PRATICHE E LABORATORI",
     body: (
       <>
-        Workshop quotidiani tra mattina e pomeriggio - musica, editoria, immagine, corpo e comunità in dialogo con il
+        Workshop quotidiani - musica, editoria, immagine, corpo e comunità in dialogo con il
         Molise.
         <a href="#lab" className={labLinkClass}>
           → Calendario lab
@@ -40,7 +39,7 @@ const PHASES: Phase[] = [
     title: "TALK: ARTE E MOLISE",
     body: (
       <>
-        Sabato 20: laboratori al mattino, poi alle <strong className="font-medium">17:00</strong> il talk pubblico con
+        Sabato 20: alle <strong className="font-medium">17:00</strong> il talk pubblico con
         ospiti da Le Fonticelle e Sagra Futuro.
         <a href="#talk" className={labLinkClass}>
           → Dettagli talk
