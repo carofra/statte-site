@@ -36,10 +36,26 @@ export default function Footer() {
         </div>
 
         <div
-          className="mt-12 max-w-[calc(100%-8rem)] text-[10px] font-normal lowercase tracking-[0.42em] text-foreground md:max-w-[calc(100%-9rem)] lg:max-w-none"
-          aria-label="stattð, copyright 2026"
+          className="mt-12 max-w-[calc(100%-8rem)] md:max-w-[calc(100%-9rem)] lg:max-w-none"
+          aria-label="stattð, copyright 2026, realizzato da carofra.dev"
         >
-          stattð &copy; 2026
+          <p className="m-0 flex flex-col gap-1.5 text-[10px] font-normal lowercase text-foreground sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-2 sm:gap-y-1">
+            <span className="tracking-[0.42em]">stattð &copy; 2026</span>
+            <span className="text-foreground/45 max-sm:hidden" aria-hidden>
+              ·
+            </span>
+            <span className="tracking-[0.24em] text-foreground/90">
+              realizzato da{" "}
+              <a
+                href="https://carofra.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground underline-offset-4 transition-colors hover:underline"
+              >
+                carofra.dev
+              </a>
+            </span>
+          </p>
         </div>
       </Container>
 
