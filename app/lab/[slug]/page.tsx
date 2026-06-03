@@ -63,7 +63,8 @@ export default async function LabPage({ params }: Props) {
             </div>
             <div className="md:col-span-4 md:flex md:flex-col md:justify-end">
               <LabBookingPanel
-                eventbriteUrl={(lab as { eventbriteUrl?: string }).eventbriteUrl}
+                bookingEmail={(lab as { bookingEmail?: string }).bookingEmail}
+                labTitle={lab.title}
                 bookingNotice={(lab as { bookingNotice?: string }).bookingNotice}
               />
             </div>

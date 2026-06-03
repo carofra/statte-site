@@ -14,17 +14,20 @@ export const navItems: NavItem[] = [
 ];
 
 /**
- * Prenotazione laboratori (Eventbrite), solo se manca `eventbriteUrl` sul singolo lab e
- * `NEXT_PUBLIC_EVENTBRITE_URL` in .env / Vercel.
+ * Prenotazione laboratori via email (fallback globale).
+ * Se manca `bookingEmail` sul singolo lab, usa `NEXT_PUBLIC_BOOKING_EMAIL` e poi questo fallback.
  */
-export const EVENTBRITE_BOOKING_FALLBACK = "";
+/** Destinatario prenotazioni (produzione: arti.inatto@gmail.com). */
+export const BOOKING_EMAIL_FALLBACK = "arti.inatto@gmail.com";
 
 export const artists: string[] = [
   "Allison",
   "Francesco Della Pelle",
   "Lucrezia Berardi",
+  "Marcello Caruso",
   "Marta Ant",
   "Martina Rotella",
+  "Mozzarella Light",
   "Tommasina Giuliasi",
 ].sort((a, b) => a.localeCompare(b, "it"));
 
@@ -34,7 +37,7 @@ export const talk = {
   dateLine: "Sabato 20 giugno 2026",
   /** Riga orario. */
   timeLine: "ORE 17:00",
-  guests: "Le Fonticelle · Sagra Futuro",
+  guests: "",
 };
 
 export const mostraFinale = {

@@ -38,14 +38,16 @@ export default function TalkSection() {
               <p className="mt-8 max-w-2xl text-base font-normal leading-relaxed text-[#1d1d1b]/90 md:mt-10 md:text-lg md:leading-relaxed">
                 {TALK_BODY}
               </p>
-              <div className="mt-8 md:mt-10">
-                <p className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#1d1d1b]/50 md:text-[11px]">
-                  Ospiti:
-                </p>
-                <p className="mt-2 max-w-xl text-sm font-light leading-relaxed text-[#1d1d1b]/75 md:text-base">
-                  {guestsLine}
-                </p>
-              </div>
+              {guestsLine ? (
+                <div className="mt-8 md:mt-10">
+                  <p className="text-[10px] font-normal uppercase tracking-[0.28em] text-[#1d1d1b]/50 md:text-[11px]">
+                    Ospiti:
+                  </p>
+                  <p className="mt-2 max-w-xl text-sm font-light leading-relaxed text-[#1d1d1b]/75 md:text-base">
+                    {guestsLine}
+                  </p>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

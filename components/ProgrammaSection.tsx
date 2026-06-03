@@ -22,40 +22,13 @@ const PHASES: Phase[] = [
     ),
   },
   {
-    date: "16-19 GIU",
-    title: "PRATICHE E LABORATORI",
-    body: (
-      <>
-        Workshop quotidiani - musica, editoria, immagine, corpo e comunità in dialogo con il
-        Molise.
-        <a href="#lab" className={labLinkClass}>
-          → Calendario lab
-        </a>
-      </>
-    ),
-  },
-  {
     date: "20 GIU",
     title: "TALK: ARTE E MOLISE",
     body: (
       <>
-        Sabato 20: alle <strong className="font-medium">17:00</strong> il talk pubblico con
-        ospiti da Le Fonticelle e Sagra Futuro.
+        Sabato 20: alle <strong className="font-medium">17:00</strong> il talk pubblico.
         <a href="#talk" className={labLinkClass}>
           → Dettagli talk
-        </a>
-      </>
-    ),
-  },
-  {
-    date: "21-26 GIU",
-    title: "RESIDENZA E LAB",
-    body: (
-      <>
-        Il programma dei laboratori prosegue fino al 26 giugno - ultimo giorno di laboratori prima della mostra
-        (musichiamo, pittura, viaggi nei ritmi del Sud, architetture dell&apos;anima e altre pratiche).
-        <a href="#lab" className={labLinkClass}>
-          → Calendario lab
         </a>
       </>
     ),

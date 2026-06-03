@@ -1,10 +1,9 @@
 /**
  * Laboratori: definizioni uniche (pagine /lab/[slug]) + calendario flat (home).
- * Prenotazione: su Eventbrite crei un evento (o un ticket type) per laboratorio, copi l’URL pubblico
- * della pagina evento (es. https://www.eventbrite.it/e/... ) e lo metti in `eventbriteUrl` sul lab.
- * Se `eventbriteUrl` manca, si usano `NEXT_PUBLIC_EVENTBRITE_URL` e poi `EVENTBRITE_BOOKING_FALLBACK` in lib/stantteData.ts.
+ * Prenotazione: form → Web3Forms (vedi LabBookingForm e .env.local).
+ * Se `bookingEmail` manca, si usano `NEXT_PUBLIC_BOOKING_EMAIL` e poi `BOOKING_EMAIL_FALLBACK` in lib/stantteData.ts.
  *
- * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; eventbriteUrl?: string; bookingNotice?: string }} Workshop
+ * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; bookingEmail?: string; bookingNotice?: string }} Workshop
  */
 
 /** Definizioni laboratorio (ordine nel file libero; `labs` esportato è alfabetico per titolo). */
@@ -16,16 +15,6 @@ const labsSource = [
     curator: "Lorenzo M. e Paolo G.",
     description:
       "Il laboratorio accompagna, passo dopo passo, chi desidera avvicinarsi alle basi della musica ascoltata e suonata, per sviluppare maggiore consapevolezza nell'ascolto. È aperto a persone di ogni livello di preparazione.",
-  },
-  {
-    id: "architetture-dell-anima",
-    slug: "architetture-dell-anima",
-    title: "ARCHITETTURE DELL'ANIMA",
-    curator: "Schasa Ricci",
-    description:
-      "Il laboratorio nasce dal desiderio di esplorare il concetto di \"Casa\" oltre la sua dimensione materiale. La casa è qui metafora del Sé: territorio emotivo, archivio di ricordi e confine tra mondo interno ed esterno. Attraverso linguaggi artistici figurativi, i partecipanti danno forma visibile alle proprie sensazioni, in un ambiente protetto e stimolante.",
-    bookingNotice:
-      "Laboratorio riservato ai pazienti del Centro di Salute Mentale del Molise. Non è disponibile per prenotazione pubblica.",
   },
   {
     id: "editoria-creativa",

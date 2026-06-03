@@ -10,7 +10,7 @@ export default function ArtistsSection() {
     >
       <LabProgramFrame tone="foreground">
         <header className="text-left">
-          <h2 className={sectionEyebrowHeadingClass}>ARTISTI</h2>
+          <h2 className={sectionEyebrowHeadingClass}>ARTISTI IN RESIDENZA</h2>
         </header>
 
         <ul className="m-0 list-none border-t border-[#1d1d1b] p-0">

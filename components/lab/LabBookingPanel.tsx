@@ -1,11 +1,19 @@
-import { EVENTBRITE_BOOKING_FALLBACK } from "@/lib/stantteData";
+import LabBookingForm from "@/components/lab/LabBookingForm";
+import {
+  buildBookingSubject,
+  buildDefaultBookingMessage,
+  hasWeb3FormsKey,
+  resolveBookingRecipient,
+} from "@/lib/booking";
 
 const btnClass =
-  "inline-flex w-full items-center justify-center border border-black bg-[#1d1d1b] px-6 py-4 text-center text-xs font-normal uppercase tracking-[0.22em] text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black md:py-5 md:text-sm md:tracking-[0.26em]";
+  "inline-flex w-full items-center justify-center border border-black bg-[#1d1d1b] px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white [text-shadow:0_1px_0_rgba(0,0,0,0.35)] transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black md:py-5 md:text-sm md:tracking-[0.26em]";
 
 type Props = {
-  /** URL pagina Eventbrite solo per questo lab (da data/labs.js). */
-  eventbriteUrl?: string;
+  /** Email prenotazione solo per questo lab (da data/labs.js). */
+  bookingEmail?: string;
+  /** Titolo laboratorio usato nel subject della mail. */
+  labTitle?: string;
   /**
    * Se presente, sostituisce il bottone di prenotazione con questa nota
    * (es. laboratorio riservato a un'utenza specifica).
@@ -13,14 +21,13 @@ type Props = {
   bookingNotice?: string;
 };
 
-export default function LabBookingPanel({ eventbriteUrl, bookingNotice }: Props) {
+export default function LabBookingPanel({ bookingEmail, labTitle, bookingNotice }: Props) {
   const notice = typeof bookingNotice === "string" ? bookingNotice.trim() : "";
-  const fromLab = typeof eventbriteUrl === "string" ? eventbriteUrl.trim() : "";
-  const fromEnv =
-    typeof process.env.NEXT_PUBLIC_EVENTBRITE_URL === "string"
-      ? process.env.NEXT_PUBLIC_EVENTBRITE_URL.trim()
-      : "";
-  const bookingUrl = fromLab || fromEnv || EVENTBRITE_BOOKING_FALLBACK.trim();
+  const subjectTitle = typeof labTitle === "string" ? labTitle.trim() : "";
+  const recipientEmail = resolveBookingRecipient(bookingEmail);
+  const bookingSubject = buildBookingSubject(subjectTitle);
+  const defaultMessage = buildDefaultBookingMessage(subjectTitle);
+  const canBook = hasWeb3FormsKey() && Boolean(recipientEmail);
 
   return (
     <aside className="mt-12 w-full border-t border-black pt-10 md:mt-0 md:border-t-0 md:pt-0">
@@ -35,19 +42,26 @@ export default function LabBookingPanel({ eventbriteUrl, bookingNotice }: Props)
             </p>
             <p className="mt-2 m-0">{notice}</p>
           </div>
-        ) : bookingUrl ? (
-          <a
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={btnClass}
-          >
-            PRENOTA IL TUO POSTO
-          </a>
+        ) : canBook ? (
+          <details className="w-full">
+            <summary
+              className={`${btnClass} list-none cursor-pointer [&::-webkit-details-marker]:hidden`}
+              style={{ color: "#fff" }}
+            >
+              PRENOTA IL TUO POSTO
+            </summary>
+
+            <LabBookingForm
+              labTitle={subjectTitle}
+              bookingSubject={bookingSubject}
+              defaultMessage={defaultMessage}
+              recipientEmail={recipientEmail}
+            />
+          </details>
         ) : (
           <span
-            className={`${btnClass} cursor-not-allowed opacity-60`}
-            title="Aggiungi eventbriteUrl sul lab in data/labs.js, oppure NEXT_PUBLIC_EVENTBRITE_URL / EVENTBRITE_BOOKING_FALLBACK"
+            className={`${btnClass} cursor-not-allowed border-black/70 text-[#f8f8f8]/85`}
+            title="Aggiungi NEXT_PUBLIC_WEB3FORMS_KEY in .env.local e l'email destinatario in NEXT_PUBLIC_BOOKING_EMAIL o BOOKING_EMAIL_FALLBACK"
           >
             PRENOTA IL TUO POSTO
           </span>
