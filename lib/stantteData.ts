@@ -21,15 +21,12 @@ export const navItems: NavItem[] = [
 export const BOOKING_EMAIL_FALLBACK = "arti.inatto@gmail.com";
 
 export const artists: string[] = [
-  "Allison",
-  "Francesco Della Pelle",
-  "Lucrezia Berardi",
   "Marcello Caruso",
   "Marta Ant",
   "Martina Rotella",
   "Mozzarella Light",
   "Tommasina Giuliasi",
-].sort((a, b) => a.localeCompare(b, "it"));
+];
 
 export const talk = {
   title: "Arte e Molise",

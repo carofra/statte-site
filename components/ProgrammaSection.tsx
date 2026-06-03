@@ -34,6 +34,11 @@ const PHASES: Phase[] = [
     ),
   },
   {
+    date: "21-26 GIU",
+    title: "CONTINUA LA RESIDENZA",
+    body: <>Dal 21 al 26 giugno prosegue la residenza: laboratori, ricerca e produzione sul territorio.</>,
+  },
+  {
     date: "27-28 GIU",
     title: "MOSTRA FINALE",
     body: (
