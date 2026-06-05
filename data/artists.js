@@ -1,7 +1,7 @@
 /**
  * Artisti in residenza: definizioni uniche (pagine /artista/[slug]) + elenco home.
  * L'ordine di visualizzazione è sempre alfabetico per nome.
- * Un artista ha una pagina dedicata (e nome cliccabile) quando ha una `bio`.
+ * Un artista ha una pagina dedicata (e nome cliccabile) quando ha bio, portfolio o social.
  *
  * @typedef {{ platform: string; handle: string; url?: string }} ArtistSocial
  * @typedef {{ name: string; slug: string; bio?: string; portfolioUrl?: string; socials?: ArtistSocial[] }} Artist
@@ -9,9 +9,37 @@
 
 const artistsSource = [
   { name: "Marcello Caruso", slug: "marcello-caruso" },
-  { name: "Marta Ant", slug: "marta-ant" },
-  { name: "Martina Rotella", slug: "martina-rotella" },
-  { name: "Mozzarella Light", slug: "mozzarella-light" },
+  {
+    name: "Marta Ant",
+    slug: "marta-ant",
+    bio: "Nata nel 1987, Marta Ant è un'artista multidisciplinare italiana che fonde immagini surreali e inconsce con un'espressione visiva, materica e corporea. Attingendo alla danza contemporanea, al teatro fisico, alla commedia e all'improvvisazione, il suo lavoro sfuma i confini tra realtà e finzione attraverso immaginazione, colore, energia collettiva, forza femminile e gioco. Ha collaborato con artisti internazionali tra cui Jeremy Shaw, Leila Hekmat e Dafna Maimon, e realizzato performance come Radici, Honey Blood and Milk, Liquid Machine e Anamnesi. Il video di Honey, Blood and Milk è stato presentato nella mostra \"Women by women\", curata da Vogue alla Pinacoteca di Brera (2026); tra i suoi lavori video figurano anche Haut, premiato a Cannes (2023), e Transformation, vincitore al Festival Breaking8 (Cagliari).",
+    socials: [
+      {
+        platform: "Instagram",
+        handle: "@marta_ant_",
+        url: "https://www.instagram.com/marta_ant_/",
+      },
+    ],
+  },
+  {
+    name: "Martina Rotella",
+    slug: "martina-rotella",
+    bio: "Classe 1995, Martina Rotella si forma all'Accademia di Belle Arti di Firenze in Pittura e Scenografia. Co-fondatrice di ARTiglieria, spazio multidisciplinare fiorentino, ha lavorato nel settore pubblicitario come scenografa e attrezzista. La sua ricerca artistica nasce dal recupero di materiale organico: un dialogo silenzioso con la materia, che nel tempo si è trasformato da processo additivo a processo sottrattivo. Gli elementi naturali lasciano la loro memoria sulla superficie della tela, prima che la pittura intervenga a rivelarne le più disparate profondità, in un processo solitario e meditativo, che esplora l'effimero e la trasparenza. Attualmente sta lavorando alla serie Miraggi.",
+    portfolioUrl: "/portfolio/martina-rotella.pdf",
+    socials: [
+      {
+        platform: "Instagram",
+        handle: "@martirotels",
+        url: "https://www.instagram.com/martirotels/",
+      },
+    ],
+  },
+  {
+    name: "Mozzarella Light",
+    slug: "mozzarella-light",
+    bio: "Mozzarella Light è il duo artistico italiano formato da Giulia Ciappi e Marco Frassinelli. La loro ricerca si sviluppa attraverso una pratica condivisa che attraversa mostre, residenze e percorsi di formazione nelle arti visive e nella scultura. Nel 2025 partecipano alla residenza \"Pensare come una montagna\", a cura di GAMeC. Dal 2018 hanno preso parte a progetti di residenza in Italia e all'estero, tra cui Torino, Finlandia, Grecia e California. Il loro percorso espositivo include mostre personali e collettive tra il 2019 e il 2025, con progetti come Calligraphy bird, To fade in, Puramente immaginabile e Cassandra.",
+    portfolioUrl: "/portfolio/mozzarella-light.pdf",
+  },
   {
     name: "Tommasina Giuliasi",
     slug: "tommasina-giuliasi",

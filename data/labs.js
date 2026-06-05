@@ -151,6 +151,7 @@ const labsSource = [
     curator: "Rebecca Fiore",
     priceEuro: 25,
     maxParticipants: 10,
+    schedule: ["Mercoledì 24 giugno · 15:00–19:00"],
     description:
       "Laboratorio creativo di ricamo su carta. Realizzazione di una cornice portafoto composta da cartoncino e fotografia. I partecipanti ricameranno un cartoncino sul quale è stata precedentemente applicata una fotografia ispirata alla regione Molise (paesaggi, elementi culturali, tradizioni, ecc.). Il ricamo (di un disegno e/o di un breve testo) sarà in armonia con la fotografia stessa. Al termine dell'attività il cartoncino ricamato verrà inserito nella cornice portafoto.",
   },

@@ -1,6 +1,6 @@
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
 import { artists } from "@/data/artists.js";
-import type { Artist } from "@/lib/artistTypes";
+import { artistHasPage, type Artist } from "@/lib/artistTypes";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,7 +11,7 @@ const portfolioBtnClass =
   "inline-flex w-full items-center justify-center gap-2 border border-black bg-[#1d1d1b] px-6 py-4 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white [text-shadow:0_1px_0_rgba(0,0,0,0.35)] transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black md:py-5 md:text-sm md:tracking-[0.26em]";
 
 export function generateStaticParams() {
-  return artists.filter((artist) => artist.bio).map((artist) => ({ slug: artist.slug }));
+  return artists.filter(artistHasPage).map((artist) => ({ slug: artist.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArtistPage({ params }: Props) {
   const { slug } = await params;
   const artist = artists.find((a) => a.slug === slug) as Artist | undefined;
-  if (!artist || !artist.bio) notFound();
+  if (!artist || !artistHasPage(artist)) notFound();
 
   const socials = artist.socials ?? [];
 
@@ -57,11 +57,17 @@ export default async function ArtistPage({ params }: Props) {
         <div className="border-b border-black py-8 md:py-10 lg:py-12">
           <div className="md:grid md:grid-cols-12 md:gap-8 lg:gap-10">
             <div className="md:col-span-8">
-              <article>
-                <p className="text-lg font-normal leading-relaxed text-black md:text-xl md:leading-relaxed lg:text-2xl lg:leading-relaxed">
-                  {artist.bio}
+              {artist.bio ? (
+                <article>
+                  <p className="text-lg font-normal leading-relaxed text-black md:text-xl md:leading-relaxed lg:text-2xl lg:leading-relaxed">
+                    {artist.bio}
+                  </p>
+                </article>
+              ) : (
+                <p className="text-base font-normal italic leading-relaxed text-black/55 md:text-lg">
+                  La biografia sarà pubblicata a breve.
                 </p>
-              </article>
+              )}
             </div>
             <div className="md:col-span-4 md:flex md:flex-col md:justify-end">
               {artist.portfolioUrl ? (

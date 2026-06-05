@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LabProgramFrame, { labProgramDisplayCore } from "@/components/lab/LabProgramFrame";
 import { artists } from "@/data/artists.js";
+import { artistHasPage } from "@/lib/artistTypes";
 import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
 const nameClass = `block min-w-0 flex-1 text-right text-[#1d1d1b] [text-wrap:balance] ${labProgramDisplayCore} text-4xl leading-none md:text-6xl lg:text-7xl`;
@@ -20,7 +21,7 @@ export default function ArtistsSection() {
 
         <ul className="m-0 list-none border-t border-[#1d1d1b] p-0">
           {artists.map((artist, index) => {
-            const hasPage = Boolean(artist.bio);
+            const hasPage = artistHasPage(artist);
             const number = String(index + 1).padStart(2, "0");
 
             return (
