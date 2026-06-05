@@ -33,7 +33,7 @@ export const talk = {
   /** Riga data (stesso stile usato in TalkSection). */
   dateLine: "Sabato 20 giugno 2026",
   /** Riga orario. */
-  timeLine: "ORE 17:30–19:00",
+  timeLine: "ORE 19:00",
   guests: "",
 };
 
@@ -42,7 +42,7 @@ export const mostraFinale = {
   dates: "Sabato 27 e domenica 28 giugno 2026",
   timeLine: "16:30–18:30",
   description:
-    "Una restituzione finale in cui le pratiche dei laboratori diventano segni, gesti e immagini: un incontro tra ricerca, comunità e visione.",
+    "Chiusura in forma espositiva della residenza, aperta alla cittadinanza, ai media e alle istituzioni. Presentazione e restituzione pubblica delle pratiche condivise e delle opere realizzate durante le due settimane di permanenza: un percorso site-specific che valorizza i luoghi ospitanti e testimonia l'impatto culturale dell'incontro tra artisti e territorio molisano.",
 };
 
 export const guestLogos: string[] = ["Le Fonticelle", "Sagra Futuro", "manoAmano"];

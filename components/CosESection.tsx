@@ -17,7 +17,7 @@ export default function CosESection() {
             />
           </h1>
           <p className="mt-1 md:mt-2 w-full max-w-4xl text-center text-sm sm:text-base md:text-lg tracking-[0.14em] md:tracking-[0.18em] uppercase text-foreground font-normal leading-relaxed">
-            Dal 15 al 28 giugno 2026
+            Larino (CB) · 15–28 giugno 2026
           </p>
         </div>
       </div>

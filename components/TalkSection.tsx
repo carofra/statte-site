@@ -3,7 +3,7 @@ import { talk } from "@/lib/stantteData";
 import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
 const TALK_BODY =
-  "Un momento di confronto sul valore della residenza come spazio di ascolto e produzione: pratiche, territori e storie che si incontrano.";
+  "Incontro e tavola rotonda aperto al pubblico e alla cittadinanza, finalizzato a mappare e valorizzare le energie creative della regione. Un momento di dibattito per creare una rete di confronto sinergica tra gli artisti in residenza e i principali collettivi e associazioni culturali che operano stabilmente nel territorio molisano, approfondendo le sfide e le opportunità del fare arte e cultura in Molise oggi.";
 
 const guestsLine = talk.guests.trim();
 
