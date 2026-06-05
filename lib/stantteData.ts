@@ -26,6 +26,8 @@ export const talk = {
   dateLine: "Sabato 20 giugno 2026",
   /** Riga orario. */
   timeLine: "DALLE 19:00",
+  /** Luogo dell'evento. */
+  location: "Piazzetta Santa Maria · Larino, Centro Storico",
   guests: "",
 };
 

@@ -8,7 +8,11 @@
  */
 
 const artistsSource = [
-  { name: "Marcello Caruso", slug: "marcello-caruso" },
+  {
+    name: "Marcello Caruso",
+    slug: "marcello-caruso",
+    bio: "Marcello Caruso è un illustratore e scrittore italo-sudafricano. Cresciuto in Sudafrica, si è laureato in Engineering Design prima di trasferirsi in Italia, dove ha conseguito la laurea magistrale in Discipline Grafiche ed Editoriali presso l'Accademia di Belle Arti di Firenze. Il suo lavoro esplora la relazione tra testo, spazio e simbolo attraverso un approccio visivo che privilegia l'atmosfera e la narrazione degli ambienti. Traendo ispirazione dalle palette cromatiche della natura, realizza immagini che uniscono ricerca, leggibilità e significato. Nel corso della sua carriera ha partecipato a numerose mostre e workshop, collaborando con realtà culturali e artistiche in contesti nazionali e internazionali.",
+  },
   {
     name: "Marta Ant",
     slug: "marta-ant",

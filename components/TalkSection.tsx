@@ -27,6 +27,11 @@ export default function TalkSection() {
               <p className="mt-3 text-sm font-normal tabular-nums tracking-wide text-[#1d1d1b]/55 md:text-base">
                 {talk.timeLine}
               </p>
+              {talk.location ? (
+                <p className="mt-4 max-w-xs text-sm font-normal leading-relaxed text-[#1d1d1b]/75 md:text-base">
+                  {talk.location}
+                </p>
+              ) : null}
             </div>
 
             <div className="md:col-span-7 lg:col-span-8">
