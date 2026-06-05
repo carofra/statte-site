@@ -3,6 +3,7 @@ import LabPriceInfo from "@/components/lab/LabPriceInfo";
 import LabScheduleInfo from "@/components/lab/LabScheduleInfo";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
 import { labs } from "@/data/labs.js";
+import type { Workshop } from "@/lib/labTypes";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LabPage({ params }: Props) {
   const { slug } = await params;
-  const lab = labs.find((l) => l.slug === slug);
+  const lab = labs.find((l) => l.slug === slug) as Workshop | undefined;
   if (!lab) notFound();
 
   return (
