@@ -26,7 +26,7 @@ const PHASES: Phase[] = [
     title: "TALK: ARTE E MOLISE",
     body: (
       <>
-        Sabato 20: alle <strong className="font-medium">17:00</strong> il talk pubblico.
+        Sabato 20: dalle <strong className="font-medium">17:30 alle 19:00</strong> il talk pubblico.
         <a href="#talk" className={labLinkClass}>
           → Dettagli talk
         </a>
@@ -43,7 +43,8 @@ const PHASES: Phase[] = [
     title: "MOSTRA FINALE",
     body: (
       <>
-        Chiusura in forma espositiva: sabato 27 e domenica 28 giugno restituzione delle pratiche condivise nella
+        Chiusura in forma espositiva: sabato 27 e domenica 28 giugno, dalle{" "}
+        <strong className="font-medium">16:30 alle 18:30</strong>, restituzione delle pratiche condivise nella
         residenza.
         <a href="#mostra" className={labLinkClass}>
           → Mostra

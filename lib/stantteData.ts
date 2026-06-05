@@ -33,13 +33,14 @@ export const talk = {
   /** Riga data (stesso stile usato in TalkSection). */
   dateLine: "Sabato 20 giugno 2026",
   /** Riga orario. */
-  timeLine: "ORE 17:00",
+  timeLine: "ORE 17:30–19:00",
   guests: "",
 };
 
 export const mostraFinale = {
   title: "MOSTRA FINALE",
   dates: "Sabato 27 e domenica 28 giugno 2026",
+  timeLine: "16:30–18:30",
   description:
     "Una restituzione finale in cui le pratiche dei laboratori diventano segni, gesti e immagini: un incontro tra ricerca, comunità e visione.",
 };

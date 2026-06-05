@@ -17,6 +17,11 @@ export default function MostraSection() {
           <p className="mt-2 max-w-xl text-xs font-normal uppercase leading-relaxed tracking-[0.2em] text-[#1d1d1b]/50 md:text-sm md:tracking-[0.24em]">
             {mostraFinale.dates}
           </p>
+          {mostraFinale.timeLine ? (
+            <p className="mt-2 text-sm font-normal tabular-nums tracking-wide text-[#1d1d1b]/55 md:text-base">
+              ORE {mostraFinale.timeLine}
+            </p>
+          ) : null}
           <h3
             className={`${labProgramDisplayClass} mt-6 text-4xl leading-none text-[#1d1d1b] [text-wrap:balance] md:mt-8 md:text-6xl lg:text-7xl`}
           >

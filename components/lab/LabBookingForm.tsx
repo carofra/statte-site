@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { buildBookingMessageWithSession, buildBookingSubject } from "@/lib/booking";
+import { FormEvent, useMemo, useState } from "react";
 
 const labelClass =
   "text-[10px] font-medium uppercase tracking-[0.22em] text-black/65 md:text-[11px]";
@@ -14,6 +15,7 @@ type Props = {
   bookingSubject: string;
   defaultMessage: string;
   recipientEmail: string;
+  sessions?: string[];
 };
 
 type SubmitState = "idle" | "loading" | "success" | "error";
@@ -23,9 +25,16 @@ export default function LabBookingForm({
   bookingSubject,
   defaultMessage,
   recipientEmail,
+  sessions,
 }: Props) {
   const [state, setState] = useState<SubmitState>("idle");
   const [errorDetail, setErrorDetail] = useState("");
+  const availableSessions = useMemo(
+    () => (sessions ?? []).map((line) => line.trim()).filter(Boolean),
+    [sessions],
+  );
+  const singleSession = availableSessions.length === 1 ? availableSessions[0] : "";
+  const [selectedSession, setSelectedSession] = useState(singleSession);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -44,6 +53,16 @@ export default function LabBookingForm({
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
     const message = String(data.get("message") ?? "").trim();
+    const session = String(data.get("session") ?? selectedSession).trim();
+
+    if (availableSessions.length > 0 && !session) {
+      setState("error");
+      setErrorDetail("Seleziona data e orario della sessione.");
+      return;
+    }
+
+    const subject = buildBookingSubject(labTitle, session) || bookingSubject;
+    const fullMessage = buildBookingMessageWithSession(message, session);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -51,13 +70,14 @@ export default function LabBookingForm({
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: bookingSubject,
+          subject,
           from_name: name,
           name,
           email,
           replyto: email,
-          message,
+          message: fullMessage,
           laboratorio: labTitle || "Stattð 2026",
+          sessione: session,
           destinatario: recipientEmail,
           botcheck: "",
         }),
@@ -73,6 +93,7 @@ export default function LabBookingForm({
 
       setState("success");
       form.reset();
+      setSelectedSession(singleSession);
     } catch {
       setState("error");
       setErrorDetail("Errore di rete. Controlla la connessione e riprova.");
@@ -106,6 +127,35 @@ export default function LabBookingForm({
         className="hidden"
         aria-hidden
       />
+
+      {availableSessions.length > 1 ? (
+        <label className="block">
+          <span className={labelClass}>Data e orario</span>
+          <select
+            className={inputClass}
+            name="session"
+            required
+            disabled={state === "loading"}
+            value={selectedSession}
+            onChange={(event) => setSelectedSession(event.target.value)}
+          >
+            <option value="">Scegli una sessione</option>
+            {availableSessions.map((session) => (
+              <option key={session} value={session}>
+                {session}
+              </option>
+            ))}
+          </select>
+        </label>
+      ) : singleSession ? (
+        <>
+          <input type="hidden" name="session" value={singleSession} />
+          <p className="text-sm leading-relaxed text-black/80">
+            <span className={labelClass}>Sessione</span>
+            <span className="mt-2 block">{singleSession}</span>
+          </p>
+        </>
+      ) : null}
 
       <label className="block">
         <span className={labelClass}>Nome</span>

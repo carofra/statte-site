@@ -14,6 +14,8 @@ type Props = {
   bookingEmail?: string;
   /** Titolo laboratorio usato nel subject della mail. */
   labTitle?: string;
+  /** Date e orari disponibili per la prenotazione (da data/labs.js). */
+  sessions?: string[];
   /**
    * Se presente, sostituisce il bottone di prenotazione con questa nota
    * (es. laboratorio riservato a un'utenza specifica).
@@ -21,7 +23,7 @@ type Props = {
   bookingNotice?: string;
 };
 
-export default function LabBookingPanel({ bookingEmail, labTitle, bookingNotice }: Props) {
+export default function LabBookingPanel({ bookingEmail, labTitle, sessions, bookingNotice }: Props) {
   const notice = typeof bookingNotice === "string" ? bookingNotice.trim() : "";
   const subjectTitle = typeof labTitle === "string" ? labTitle.trim() : "";
   const recipientEmail = resolveBookingRecipient(bookingEmail);
@@ -56,6 +58,7 @@ export default function LabBookingPanel({ bookingEmail, labTitle, bookingNotice 
               bookingSubject={bookingSubject}
               defaultMessage={defaultMessage}
               recipientEmail={recipientEmail}
+              sessions={sessions}
             />
           </details>
         ) : (

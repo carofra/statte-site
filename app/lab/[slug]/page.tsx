@@ -1,4 +1,6 @@
 import LabBookingPanel from "@/components/lab/LabBookingPanel";
+import LabPriceInfo from "@/components/lab/LabPriceInfo";
+import LabScheduleInfo from "@/components/lab/LabScheduleInfo";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
 import { labs } from "@/data/labs.js";
 import type { Metadata } from "next";
@@ -62,10 +64,17 @@ export default async function LabPage({ params }: Props) {
               </article>
             </div>
             <div className="md:col-span-4 md:flex md:flex-col md:justify-end">
+              {lab.schedule?.length ? <LabScheduleInfo sessions={lab.schedule} /> : null}
+              <LabPriceInfo
+                priceEuro={lab.priceEuro}
+                maxParticipants={lab.maxParticipants}
+                audience={lab.audience}
+              />
               <LabBookingPanel
-                bookingEmail={(lab as { bookingEmail?: string }).bookingEmail}
+                bookingEmail={lab.bookingEmail}
                 labTitle={lab.title}
-                bookingNotice={(lab as { bookingNotice?: string }).bookingNotice}
+                sessions={lab.schedule}
+                bookingNotice={lab.bookingNotice}
               />
             </div>
           </div>

@@ -9,14 +9,27 @@ export function resolveBookingRecipient(bookingEmail?: string): string {
   return fromLab || fromEnv || BOOKING_EMAIL_FALLBACK.trim();
 }
 
-export function buildBookingSubject(labTitle?: string): string {
+export function buildBookingSubject(labTitle?: string, session?: string): string {
   const title = typeof labTitle === "string" ? labTitle.trim() : "";
-  return `Prenotazione laboratorio - ${title || "Stattð 2026"}`;
+  const sessionLine = typeof session === "string" ? session.trim() : "";
+  const base = `Prenotazione laboratorio - ${title || "Stattð 2026"}`;
+  return sessionLine ? `${base} - ${sessionLine}` : base;
 }
 
-export function buildDefaultBookingMessage(labTitle?: string): string {
+export function buildDefaultBookingMessage(labTitle?: string, session?: string): string {
   const title = typeof labTitle === "string" ? labTitle.trim() : "";
-  return `Ciao, vorrei prenotare il laboratorio${title ? ` ${title}` : ""}.`;
+  const sessionLine = typeof session === "string" ? session.trim() : "";
+  const labPart = title ? ` il laboratorio ${title}` : " un laboratorio";
+  const sessionPart = sessionLine ? ` per la sessione del ${sessionLine}` : "";
+  return `Ciao, vorrei prenotare${labPart}${sessionPart}.`;
+}
+
+export function buildBookingMessageWithSession(message: string, session?: string): string {
+  const body = message.trim();
+  const sessionLine = typeof session === "string" ? session.trim() : "";
+  if (!sessionLine) return body;
+  const sessionBlock = `Sessione: ${sessionLine}`;
+  return body ? `${sessionBlock}\n\n${body}` : sessionBlock;
 }
 
 export function hasWeb3FormsKey(): boolean {
