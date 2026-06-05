@@ -21,22 +21,10 @@ const PHASES: Phase[] = [
     date: "15 GIU",
     title: "APERTURA E AVVIO DELLE ATTIVITÀ",
     body: (
-      <ul className={phaseListClass}>
-        <li>
-          <strong className="font-medium">Inizio della residenza:</strong> arrivo ufficiale degli artisti
-          selezionati presso la sede della residenza a Larino.
-        </li>
-        <li>
-          <strong className="font-medium">Sessione di benvenuto e briefing:</strong> incontro introduttivo con
-          curatori, partner di progetto e realtà locali per l&apos;inquadramento logistico e concettuale delle
-          attività.
-        </li>
-        <li>
-          <strong className="font-medium">Avvio dei laboratori sul territorio:</strong> prime sessioni di
-          esplorazione urbana e rurale, con i primi contatti tra artisti, comunità locale, maestranze e patrimonio
-          storico-antropologico del luogo.
-        </li>
-      </ul>
+      <p className={phaseBodyClass}>
+        <strong className="font-medium">Inizio della residenza:</strong> arrivo ufficiale degli artisti selezionati
+        presso la sede della residenza a Larino.
+      </p>
     ),
   },
   {
@@ -56,7 +44,7 @@ const PHASES: Phase[] = [
           </li>
         </ul>
         <p className={`${phaseBodyClass} mt-5`}>
-          Sabato 20 giugno, ore <strong className="font-medium">19:00</strong>.
+          Sabato 20 giugno, dalle <strong className="font-medium">19:00</strong>.
           <a href="#talk" className={labLinkClass}>
             → Dettagli talk
           </a>
@@ -99,7 +87,7 @@ const PHASES: Phase[] = [
           </li>
         </ul>
         <p className={`${phaseBodyClass} mt-5`}>
-          Sabato 27 e domenica 28 giugno, dalle <strong className="font-medium">16:30 alle 18:30</strong>.
+          Sabato 27 e domenica 28 giugno, dalle <strong className="font-medium">17:00</strong>.
           <a href="#mostra" className={labLinkClass}>
             → Mostra
           </a>

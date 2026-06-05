@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { artists } from "@/lib/stantteData";
+import { artistNames } from "@/data/artists.js";
 
 function MarqueeStrip() {
   return (
@@ -13,7 +13,7 @@ function MarqueeStrip() {
       <span className="text-[9px] md:text-[10px] tracking-[0.38em] uppercase font-normal text-foreground">
         MOLISE
       </span>
-      {artists.map((name) => (
+      {artistNames.map((name) => (
         <Fragment key={name}>
           <span aria-hidden="true" className="select-none text-[11px] md:text-sm font-normal text-foreground">
             ·

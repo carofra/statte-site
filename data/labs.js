@@ -3,10 +3,10 @@
  * Prenotazione: form → Web3Forms (vedi LabBookingForm e .env.local).
  * Se `bookingEmail` manca, si usano `NEXT_PUBLIC_BOOKING_EMAIL` e poi `BOOKING_EMAIL_FALLBACK` in lib/stantteData.ts.
  *
- * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; priceEuro: number; maxParticipants: number; schedule?: string[]; audience?: string; bookingEmail?: string; bookingNotice?: string }} Workshop
+ * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; priceEuro: number; maxParticipants?: number; minParticipants?: number; schedule?: string[]; audience?: string; bookingEmail?: string; bookingNotice?: string }} Workshop
  */
 
-/** Definizioni laboratorio (ordine nel file libero; `labs` esportato è alfabetico per titolo). */
+/** Definizioni laboratorio: l'ordine di visualizzazione è sempre alfabetico per titolo. */
 const labsSource = [
   {
     id: "la-visione-della-musica",
@@ -135,6 +135,16 @@ const labsSource = [
       "Il laboratorio è un viaggio tra arte e meraviglia: i bambini scoprono come nascono i colori, quasi per magia. Esperienza giocosa e sorprendente che li avvicina alla natura attraverso colore, scoperta e fantasia.",
   },
   {
+    id: "open-dialogues",
+    slug: "open-dialogues",
+    title: "OPEN DIALOGUES - DIALOGHI APERTI",
+    curator: "Eleonora Moro",
+    priceEuro: 5,
+    minParticipants: 10,
+    description:
+      "Un percorso di pochi km per riscoprire le zone più suggestive di Larino sotto un punto di vista diverso: quello musicale. Attraverseremo la cittadina scoprendo fonti storiche interessanti, leggende, aneddoti, melodie. Una passeggiata che aprirà un dialogo tra presente e passato, tra la musica del sud Italia, la musica dei balcani, la musica araba: tutte culture che a Larino sono passate nel corso dei secoli, lasciando un segno nell'identità locale.",
+  },
+  {
     id: "ricamo-su-carta",
     slug: "ricamo-su-carta",
     title: "RICAMO SU CARTA",
@@ -142,12 +152,14 @@ const labsSource = [
     priceEuro: 25,
     maxParticipants: 10,
     description:
-      "La descrizione del laboratorio sarà pubblicata a breve.",
+      "Laboratorio creativo di ricamo su carta. Realizzazione di una cornice portafoto composta da cartoncino e fotografia. I partecipanti ricameranno un cartoncino sul quale è stata precedentemente applicata una fotografia ispirata alla regione Molise (paesaggi, elementi culturali, tradizioni, ecc.). Il ricamo (di un disegno e/o di un breve testo) sarà in armonia con la fotografia stessa. Al termine dell'attività il cartoncino ricamato verrà inserito nella cornice portafoto.",
   },
 ];
 
-/** Pagine laboratorio, ordine alfabetico per titolo (italiano). */
-export const labs = [...labsSource].sort((a, b) => a.title.localeCompare(b.title, "it"));
+/** Pagine laboratorio e elenchi: ordine alfabetico per titolo (italiano). */
+export const labs = [...labsSource].sort((a, b) =>
+  a.title.localeCompare(b.title, "it", { sensitivity: "base" }),
+);
 
 /**
  * Elenco home (#lab): stesso ordine alfabetico del titolo.

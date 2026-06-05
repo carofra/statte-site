@@ -20,27 +20,19 @@ export const navItems: NavItem[] = [
 /** Destinatario prenotazioni (produzione: arti.inatto@gmail.com). */
 export const BOOKING_EMAIL_FALLBACK = "arti.inatto@gmail.com";
 
-export const artists: string[] = [
-  "Marcello Caruso",
-  "Marta Ant",
-  "Martina Rotella",
-  "Mozzarella Light",
-  "Tommasina Giuliasi",
-];
-
 export const talk = {
   title: "Arte e Molise",
   /** Riga data (stesso stile usato in TalkSection). */
   dateLine: "Sabato 20 giugno 2026",
   /** Riga orario. */
-  timeLine: "ORE 19:00",
+  timeLine: "DALLE 19:00",
   guests: "",
 };
 
 export const mostraFinale = {
   title: "MOSTRA FINALE",
   dates: "Sabato 27 e domenica 28 giugno 2026",
-  timeLine: "16:30–18:30",
+  timeLine: "DALLE 17:00",
   description:
     "Chiusura in forma espositiva della residenza, aperta alla cittadinanza, ai media e alle istituzioni. Presentazione e restituzione pubblica delle pratiche condivise e delle opere realizzate durante le due settimane di permanenza: un percorso site-specific che valorizza i luoghi ospitanti e testimonia l'impatto culturale dell'incontro tra artisti e territorio molisano.",
 };

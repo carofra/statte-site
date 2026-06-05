@@ -4,6 +4,7 @@ import LabScheduleInfo from "@/components/lab/LabScheduleInfo";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
 import { labs } from "@/data/labs.js";
 import type { Workshop } from "@/lib/labTypes";
+import { sortLabsByTitle } from "@/lib/labSort";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,7 +12,7 @@ import { notFound } from "next/navigation";
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return labs.map((lab) => ({ slug: lab.slug }));
+  return sortLabsByTitle(labs).map((lab) => ({ slug: lab.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -69,6 +70,7 @@ export default async function LabPage({ params }: Props) {
               <LabPriceInfo
                 priceEuro={lab.priceEuro}
                 maxParticipants={lab.maxParticipants}
+                minParticipants={lab.minParticipants}
                 audience={lab.audience}
               />
               <LabBookingPanel

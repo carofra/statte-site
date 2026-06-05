@@ -1,22 +1,22 @@
 import Link from "next/link";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
-import { labScheduleSorted, labs } from "@/data/labs.js";
+import { labs } from "@/data/labs.js";
+import { sortLabsByTitle } from "@/lib/labSort";
 import { sectionEyebrowHeadingClass } from "@/lib/sectionEyebrow";
 
-const workshopBySlug = Object.fromEntries(labs.map((l) => [l.slug, l]));
+const sortedLabs = sortLabsByTitle(labs);
+const workshopBySlug = Object.fromEntries(sortedLabs.map((l) => [l.slug, l]));
 
 const LAB_INTRO =
   "La ricerca non resta chiusa negli studi, ma si apre alla comunità. Una serie di workshop per sperimentare tecniche, visioni e materia viva, guidati dai curatori della residenza.";
 
-type ScheduleRow = (typeof labScheduleSorted)[number];
-
-type SessionRow = { kind: "session"; key: string; schedule: ScheduleRow; index: number };
+type SessionRow = { kind: "session"; key: string; slug: string; index: number };
 
 function buildLabListRows(): SessionRow[] {
-  return labScheduleSorted.map((schedule, index) => ({
+  return sortedLabs.map((lab, index) => ({
     kind: "session",
-    key: schedule.id,
-    schedule,
+    key: lab.id,
+    slug: lab.slug,
     index,
   }));
 }
@@ -56,8 +56,7 @@ export default function LabsSection() {
 }
 
 function SessionListItem({ row }: { row: SessionRow }) {
-  const s = row.schedule;
-  const workshop = workshopBySlug[s.slug];
+  const workshop = workshopBySlug[row.slug];
   const title = workshop?.title ?? "";
   const curator = workshop?.curator ?? "";
 
@@ -89,7 +88,7 @@ function SessionListItem({ row }: { row: SessionRow }) {
 
   return (
     <li className="m-0 list-none border-b border-[#1d1d1b] p-0">
-      <Link href={`/lab/${s.slug}`} className={rowGridClass}>
+      <Link href={`/lab/${row.slug}`} className={rowGridClass}>
         {inner}
       </Link>
     </li>

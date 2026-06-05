@@ -19,7 +19,7 @@ export default function MostraSection() {
           </p>
           {mostraFinale.timeLine ? (
             <p className="mt-2 text-sm font-normal tabular-nums tracking-wide text-[#1d1d1b]/55 md:text-base">
-              ORE {mostraFinale.timeLine}
+              {mostraFinale.timeLine}
             </p>
           ) : null}
           <h3

@@ -5,7 +5,8 @@ export type Workshop = {
   curator: string;
   description: string;
   priceEuro: number;
-  maxParticipants: number;
+  maxParticipants?: number;
+  minParticipants?: number;
   schedule?: string[];
   audience?: string;
   bookingEmail?: string;
