@@ -88,7 +88,7 @@ const labsSource = [
     curator: "Denny Vitulli e La stozza",
     priceEuro: 25,
     maxParticipants: 10,
-    schedule: ["Domenica 21 giugno · 17:00–18:30"],
+    schedule: ["Domenica 21 giugno · 17:00–19:00"],
     description:
       "Il laboratorio affronta lo studio narrativo e illustrativo del fumetto, con un approccio affine al cinema: sceneggiatura, inquadrature, sequenza delle immagini e costruzione della storia.",
   },
@@ -100,10 +100,11 @@ const labsSource = [
     priceEuro: 65,
     maxParticipants: 10,
     schedule: [
-      "Lunedì 22 giugno · 14:00–16:30",
-      "Martedì 23 giugno · 10:00–13:00",
-      "Mercoledì 24 giugno · 10:00–13:00",
-      "Giovedì 25 giugno · 16:00–18:30",
+      "Lunedì 22 giugno · 10:00–12:00",
+      "Martedì 23 giugno · 10:00–12:00",
+      "Mercoledì 24 giugno · 10:00–12:00",
+      "Giovedì 25 giugno · 10:00–12:00",
+      "Venerdì 26 giugno · 10:00–12:00",
     ],
     description:
       "Il laboratorio propone la musica come gioco, espressione, comunicazione e relazione. I bambini entrano nel linguaggio sonoro partendo da immagini, filastrocche e ninne nanne del Molise e si avvicinano al patrimonio culturale locale in modo attivo e coinvolgente. Attraverso gioco ed esplorazione, i bambini confrontano i materiali, li rielaborano in modo creativo e vivono la musica come scoperta e divertimento.",
@@ -116,7 +117,7 @@ const labsSource = [
     priceEuro: 10,
     maxParticipants: 15,
     audience: "adulti e ragazzi",
-    schedule: ["Lunedì 22 giugno · 16:00–18:00"],
+    schedule: ["Lunedì 22 giugno · 09:30–12:30"],
     description:
       "Il laboratorio è uno studio dal vivo di particolari architettonici e paesaggistici, en plein air. Il progetto \"Riproduzione di particolari architettonici\" è esperienziale e inclusivo: coinvolge bambini, ragazzi e adulti in un'attività artistica e manuale a contatto diretto con l'ambiente.",
   },
@@ -139,7 +140,7 @@ const labsSource = [
     slug: "open-dialogues",
     title: "OPEN DIALOGUES - DIALOGHI APERTI",
     curator: "Eleonora Moro",
-    priceEuro: 15,
+    priceEuro: 25,
     minParticipants: 10,
     description:
       "Un percorso di pochi km per riscoprire le zone più suggestive di Larino sotto un punto di vista diverso: quello musicale. Attraverseremo la cittadina scoprendo fonti storiche interessanti, leggende, aneddoti, melodie. Una passeggiata che aprirà un dialogo tra presente e passato, tra la musica del sud Italia, la musica dei balcani, la musica araba: tutte culture che a Larino sono passate nel corso dei secoli, lasciando un segno nell'identità locale.",
