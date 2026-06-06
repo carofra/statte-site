@@ -9,9 +9,9 @@
 /** Definizioni laboratorio: l'ordine di visualizzazione è sempre alfabetico per titolo. */
 const labsSource = [
   {
-    id: "la-visione-della-musica",
-    slug: "la-visione-della-musica",
-    title: "MUSICA VISTA DAL RITMO",
+    id: "le-radici-nel-ritmo",
+    slug: "le-radici-nel-ritmo",
+    title: "LE RADICI NEL RITMO",
     curator: "Lorenzo M. e Paolo G.",
     priceEuro: 65,
     maxParticipants: 12,
@@ -74,8 +74,8 @@ const labsSource = [
     maxParticipants: 12,
     audience: "ragazzi e adulti",
     schedule: [
-      "Venerdì 19 giugno · 16:00–18:00",
-      "Sabato 20 giugno · 10:00–12:30",
+      "Venerdì 19 giugno · 16:00–19:00",
+      "Sabato 20 giugno · 10:00–13:00",
       "Giovedì 25 giugno · 10:00–13:00",
     ],
     description:
