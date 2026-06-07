@@ -19,7 +19,7 @@ export type RotatingLogoEProps = {
   priority?: boolean;
   /**
    * `css`: animazione 30s in `globals.css`.
-   * `motionScroll`: stesso angolo condiviso (provider in layout) — watermark e footer allineati.
+   * `motionScroll`: stesso angolo condiviso (provider in layout) - watermark e footer allineati.
    */
   rotationMode?: "css" | "motionScroll";
   /** Tooltip nativo (es. incipit “interattivo” nel manifesto). */

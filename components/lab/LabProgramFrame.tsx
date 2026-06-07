@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-/** Stack tipografico display (Providence), senza colore — aggiungi `text-black` o `text-foreground`. */
+/** Stack tipografico display (Providence), senza colore - aggiungi `text-black` o `text-foreground`. */
 export const labProgramDisplayCore =
   "font-normal uppercase tracking-[-0.04em] leading-[0.82] [font-family:'Providence_Sans_Pro','Providence_Sans',ui-sans-serif,sans-serif]";
 

@@ -44,7 +44,20 @@ const artistsSource = [
     bio: "Mozzarella Light è il duo artistico italiano formato da Giulia Ciappi e Marco Frassinelli. La loro ricerca si sviluppa attraverso una pratica condivisa che attraversa mostre, residenze e percorsi di formazione nelle arti visive e nella scultura. Nel 2025 partecipano alla residenza \"Pensare come una montagna\", a cura di GAMeC. Dal 2018 hanno preso parte a progetti di residenza in Italia e all'estero, tra cui Torino, Finlandia, Grecia e California. Il loro percorso espositivo include mostre personali e collettive tra il 2019 e il 2025, con progetti come Calligraphy bird, To fade in, Puramente immaginabile e Cassandra.",
     portfolioUrl: "/portfolio/mozzarella-light.pdf",
   },
-  { name: "Rickyboy", slug: "rickyboy" },
+  {
+    name: "Rikyboy",
+    slug: "rikyboy",
+    bio: "Rikyboy è un artista visivo il cui processo spazia dall'intervento murale alla calcografia fino all'interpretazione musicale. La sua poetica attinge ai ricordi sfumati dell'infanzia, dove la nostalgia diventa protagonista attraverso realtà circensi e vedute rurali: nel circo il segno si fa grafico, con campiture piatte e colori chiassosi; negli scorci campestri il segno si fa gestuale, con pennellate frastagliate e frenetiche. Si definisce un voyeur della Brianza e nel 2024 dà vita al progetto itinerante Circo Rurale, alla scoperta delle cascine e delle corti lombarde, celebrando con un tributo circense la spettacolarità della vita agreste e la sua decadenza. È inoltre batterista degli Amici di Bruce e fondatore dell'etichetta Petronilla Records.",
+    portfolioUrl: "https://rikyboy.com",
+    socials: [
+      {
+        platform: "Instagram",
+        handle: "@riky_boyz",
+        url: "https://www.instagram.com/riky_boyz/",
+      },
+      { platform: "Facebook", handle: "Rikyboy" },
+    ],
+  },
   {
     name: "Tommasina Giuliasi",
     slug: "tommasina-giuliasi",

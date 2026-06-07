@@ -66,7 +66,7 @@ export default function ProgrammaSection() {
         <header className="text-left">
           <h2 className={sectionEyebrowHeadingClass}>PROGRAMMA</h2>
           <p className="mt-4 max-w-3xl text-sm font-normal uppercase tracking-[0.18em] text-foreground/55 md:text-base md:tracking-[0.22em]">
-            Larino (CB) · 15–28 giugno 2026
+            Larino (CB) · 15-28 giugno 2026
           </p>
           <p className="mt-6 max-w-3xl text-base font-normal leading-relaxed text-foreground/90 md:text-lg md:leading-relaxed">
             Due settimane di ricerca, produzione e co-creazione contemporanea tra Larino e il Molise.

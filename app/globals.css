@@ -7,7 +7,7 @@
   --foreground: #1d1d1b; /* testi e accenti */
   --accent: #1d1d1b;
 
-  /* Font: Providence Sans — file TTF in public/fonts/ (vedi public/fonts/README.txt) */
+  /* Font: Providence Sans - file TTF in public/fonts/ (vedi public/fonts/README.txt) */
   --font-sans-custom:
     "Providence Sans",
     ui-sans-serif,
@@ -120,7 +120,7 @@ a {
   }
 }
 
-/* Footer: timbro “e” wordmark — rotazione lenta e costante */
+/* Footer: timbro “e” wordmark - rotazione lenta e costante */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
