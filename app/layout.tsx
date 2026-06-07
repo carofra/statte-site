@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import ScrollGatedGlobalWatermark from "@/components/ScrollGatedGlobalWatermark";
 import { ScrollRotationProvider } from "@/components/ScrollRotationProvider";
@@ -46,6 +47,7 @@ export default function RootLayout({
           <ScrollGatedGlobalWatermark />
           {children}
         </ScrollRotationProvider>
+        <Analytics />
       </body>
     </html>
   );
