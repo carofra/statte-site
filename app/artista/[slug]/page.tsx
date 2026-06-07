@@ -17,9 +17,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const artist = artists.find((a) => a.slug === slug);
-  if (!artist) return { title: "Artista · Stattð" };
+  if (!artist) return { title: "Artista · Statte" };
   return {
-    title: `${artist.name} · Artisti · Stattð`,
+    title: `${artist.name} · Artisti · Statte`,
     description: artist.bio,
   };
 }

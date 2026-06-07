@@ -18,9 +18,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const lab = labs.find((l) => l.slug === slug);
-  if (!lab) return { title: "Lab · Stattð" };
+  if (!lab) return { title: "Lab · Statte" };
   return {
-    title: `${lab.title} · Lab · Stattð`,
+    title: `${lab.title} · Lab · Statte`,
     description: lab.description,
   };
 }

@@ -7,8 +7,8 @@ import { ScrollRotationProvider } from "@/components/ScrollRotationProvider";
 import ScrollToTopOnReload from "@/components/ScrollToTopOnReload";
 
 export const metadata: Metadata = {
-  /** Schwa (ə) nel titolo scheda/SERP; nel sito visibile resta ð per Providence Sans. */
-  title: "Stattə - Residenza Artistica",
+  /** Titolo scheda con "e" normale (le tab usano il font di sistema); nel resto del sito resta ð per Providence Sans. */
+  title: "Statte - Residenza Artistica",
   description:
     "Stattð è una residenza artistica in Molise (15-28 giugno 2026): ascolto, dialogo e produzione artistica.",
 };
