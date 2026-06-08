@@ -12,6 +12,7 @@ const submitClass =
 
 type Props = {
   labTitle: string;
+  bookingType?: "laboratorio" | "masterclass";
   bookingSubject: string;
   defaultMessage: string;
   recipientEmail: string;
@@ -22,6 +23,7 @@ type SubmitState = "idle" | "loading" | "success" | "error";
 
 export default function LabBookingForm({
   labTitle,
+  bookingType = "laboratorio",
   bookingSubject,
   defaultMessage,
   recipientEmail,
@@ -61,7 +63,7 @@ export default function LabBookingForm({
       return;
     }
 
-    const subject = buildBookingSubject(labTitle, session) || bookingSubject;
+    const subject = buildBookingSubject(labTitle, session, bookingType) || bookingSubject;
     const fullMessage = buildBookingMessageWithSession(message, session);
 
     try {

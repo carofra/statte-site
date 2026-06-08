@@ -2,12 +2,21 @@ Providence Sans (FontsGeek)
 
 1. Scarica "Providence Sans Regular" e "Providence Sans Bold" da fontsgeek.com (stessa famiglia).
 2. Estrai i TTF e rinominali ESATTAMENTE così in questa cartella:
-   - ProvidenceSans-Regular.ttf
+   - ProvidenceSans-Regular-v2.ttf
    - ProvidenceSans-Bold.ttf
 
 Se i nomi nel ZIP sono diversi, rinomina i file per coincidere con i nomi sopra.
 
 Licenza: verifica su FontsGeek se l'uso sul web è consentito per il tuo caso.
+
+---
+
+Patch glifi (Regular-v2)
+------------------------
+Il file Regular originale aveva i glifi delle i accentate (ì í î ï) composti SOLO
+dall'accento, senza la base "dotlessi": nei giorni (Martedì, Venerdì, …) si vedeva
+solo l'accentino. I 4 glifi sono stati riparati aggiungendo la base, e il file è stato
+rinominato in `-v2` per forzare l'aggiornamento della cache del browser.
 
 ---
 

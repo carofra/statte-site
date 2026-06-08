@@ -25,7 +25,7 @@
 
 @font-face {
   font-family: "Providence Sans";
-  src: url("/fonts/ProvidenceSans-Regular.ttf") format("truetype");
+  src: url("/fonts/ProvidenceSans-Regular-v2.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   /* swap + preload in layout: testo leggibile subito, passaggio al custom appena pronto */

@@ -23,7 +23,7 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
-          href="/fonts/ProvidenceSans-Regular.ttf"
+          href="/fonts/ProvidenceSans-Regular-v2.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"

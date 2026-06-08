@@ -9,17 +9,27 @@ export function resolveBookingRecipient(bookingEmail?: string): string {
   return fromLab || fromEnv || BOOKING_EMAIL_FALLBACK.trim();
 }
 
-export function buildBookingSubject(labTitle?: string, session?: string): string {
+export function buildBookingSubject(
+  labTitle?: string,
+  session?: string,
+  itemLabel = "laboratorio",
+): string {
   const title = typeof labTitle === "string" ? labTitle.trim() : "";
   const sessionLine = typeof session === "string" ? session.trim() : "";
-  const base = `Prenotazione laboratorio - ${title || "Stattð 2026"}`;
+  const label = itemLabel.trim() || "laboratorio";
+  const base = `Prenotazione ${label} - ${title || "Stattð 2026"}`;
   return sessionLine ? `${base} - ${sessionLine}` : base;
 }
 
-export function buildDefaultBookingMessage(labTitle?: string, session?: string): string {
+export function buildDefaultBookingMessage(
+  labTitle?: string,
+  session?: string,
+  itemLabel = "il laboratorio",
+): string {
   const title = typeof labTitle === "string" ? labTitle.trim() : "";
   const sessionLine = typeof session === "string" ? session.trim() : "";
-  const labPart = title ? ` il laboratorio ${title}` : " un laboratorio";
+  const label = itemLabel.trim() || "il laboratorio";
+  const labPart = title ? ` ${label} ${title}` : ` ${label}`;
   const sessionPart = sessionLine ? ` per la sessione del ${sessionLine}` : "";
   return `Ciao, vorrei prenotare${labPart}${sessionPart}.`;
 }

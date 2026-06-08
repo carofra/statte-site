@@ -6,6 +6,7 @@ export type NavItem = { id: string; label: string };
  */
 export const navItems: NavItem[] = [
   { id: "cos-e", label: "Cos'è Stattð" },
+  { id: "masterclass", label: "Masterclass" },
   { id: "artisti", label: "Artisti" },
   { id: "programma", label: "Programma" },
   { id: "lab", label: "Lab" },
@@ -19,6 +20,31 @@ export const navItems: NavItem[] = [
  */
 /** Destinatario prenotazioni (produzione: arti.inatto@gmail.com). */
 export const BOOKING_EMAIL_FALLBACK = "arti.inatto@gmail.com";
+
+export const masterclass = {
+  /** Titolo grande: niente uppercase CSS, così il glifo ð di marchio resta corretto. */
+  title: "Diora Madama x Stattð",
+  dateLine: "Venerdì 26 giugno 2026",
+  timeLine: "09:00-13:00 · 15:00-18:00",
+  schedule: ["Venerdì 26 giugno · 09:00-13:00 / 15:00-18:00"],
+  bio: "Diora Madama è Angela Radoccia, producer, songwriter e performer abruzzese di base a Milano, in bilico tra attitudine urbana e ricerca sui suoni e le culture musicali mediterranee e sudamericane. Laureata in jazz, muove i primi passi firmando jingle e sigle per cartoni animati, e nel 2022 debutta con l'EP \"2D\". Nel 2024 firma con INRI/Metatron (Universal Music) e nel 2025 pubblica il primo album \"La Morte\"; nello stesso periodo entra nel roster di Waveforms Publishing come resident producer dello studio di Andrea Mariano (Negramaro).",
+  description:
+    "Una giornata sulla produzione musicale contemporanea: al mattino il processo creativo tra progetti Ableton e differenze tra pop e alternativa; al pomeriggio la creazione di un beat da zero con la classe e un breve set dal vivo.",
+  objective:
+    "Capire come funziona la produzione nell'industria musicale e quali sono le sue tipologie principali, arrivando a costruire una produzione completa dall'inizio alla fine.",
+  program: [
+    {
+      time: "Mattina · 09:00-13:00",
+      title: "Dentro la produzione",
+      text: "Si parte dalla differenza tra produzione pop e alternativa, poi Diora Madama apre i suoi progetti Ableton per ripercorrere come sono costruite le tracce e l'intero processo creativo, dalla prima idea all'arrangiamento completo.",
+    },
+    {
+      time: "Pomeriggio · 15:00-18:00",
+      title: "Un beat dal vivo",
+      text: "Parte interattiva: la classe costruisce un beat da zero insieme all'artista, fino a un breve set dal vivo tra sequenze, canto, strumenti e loop.",
+    },
+  ],
+};
 
 export const talk = {
   title: "Arte e Molise",

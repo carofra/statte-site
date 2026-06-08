@@ -45,7 +45,7 @@ export default async function ArtistPage({ params }: Props) {
 
         <header className="border-b border-black py-10 md:py-12 lg:py-14">
           <p className="text-[10px] font-normal tracking-[0.42em] text-black/50 md:text-[11px]">
-            <span className="uppercase">Artista</span> · statte 2026
+            <span className="uppercase">Artista</span> · stattð 2026
           </p>
           <h1
             className={`${labProgramDisplayClass} mt-5 text-5xl leading-none [text-wrap:balance] md:mt-6 md:text-7xl`}

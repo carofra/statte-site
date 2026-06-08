@@ -14,6 +14,8 @@ type Props = {
   bookingEmail?: string;
   /** Titolo laboratorio usato nel subject della mail. */
   labTitle?: string;
+  /** Tipo di attività usato in subject e messaggio precompilato. */
+  bookingType?: "laboratorio" | "masterclass";
   /** Date e orari disponibili per la prenotazione (da data/labs.js). */
   sessions?: string[];
   /**
@@ -23,12 +25,19 @@ type Props = {
   bookingNotice?: string;
 };
 
-export default function LabBookingPanel({ bookingEmail, labTitle, sessions, bookingNotice }: Props) {
+export default function LabBookingPanel({
+  bookingEmail,
+  labTitle,
+  bookingType = "laboratorio",
+  sessions,
+  bookingNotice,
+}: Props) {
   const notice = typeof bookingNotice === "string" ? bookingNotice.trim() : "";
   const subjectTitle = typeof labTitle === "string" ? labTitle.trim() : "";
+  const messageLabel = bookingType === "masterclass" ? "la masterclass" : "il laboratorio";
   const recipientEmail = resolveBookingRecipient(bookingEmail);
-  const bookingSubject = buildBookingSubject(subjectTitle);
-  const defaultMessage = buildDefaultBookingMessage(subjectTitle);
+  const bookingSubject = buildBookingSubject(subjectTitle, undefined, bookingType);
+  const defaultMessage = buildDefaultBookingMessage(subjectTitle, undefined, messageLabel);
   const canBook = hasWeb3FormsKey() && Boolean(recipientEmail);
 
   return (
@@ -55,6 +64,7 @@ export default function LabBookingPanel({ bookingEmail, labTitle, sessions, book
 
             <LabBookingForm
               labTitle={subjectTitle}
+              bookingType={bookingType}
               bookingSubject={bookingSubject}
               defaultMessage={defaultMessage}
               recipientEmail={recipientEmail}

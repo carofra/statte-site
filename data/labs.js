@@ -32,8 +32,8 @@ const labsSource = [
     priceEuro: 30,
     maxParticipants: 10,
     schedule: [
-      "Martedì 16 giugno · 16:00-18:00",
       "Mercoledì 17 giugno · 14:30-17:00",
+      "Giovedì 18 giugno · 16:00-18:00",
       "Martedì 23 giugno · 16:00-18:30",
       "Mercoledì 24 giugno · 16:00-18:30",
     ],

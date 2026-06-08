@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LabsSection from "@/components/LabsSection";
 import ManifestoScreens from "@/components/ManifestoScreens";
+import MasterclassSection from "@/components/MasterclassSection";
 import MostraSection from "@/components/MostraSection";
 import ProgrammaSection from "@/components/ProgrammaSection";
 import RunningMarquee from "@/components/RunningMarquee";
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="flex-1">
         <CosESection />
         <ManifestoScreens />
+        <MasterclassSection />
         <ArtistsSection />
         <ProgrammaSection />
         <LabsSection />
