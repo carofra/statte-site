@@ -148,7 +148,7 @@ const labsSource = [
     curator: "Eleonora Moro",
     priceEuro: 25,
     minParticipants: 10,
-    schedule: ["Domenica 21 giugno · 09:00-13:00"],
+    schedule: ["Domenica 21 giugno · 09:00"],
     description:
       "Un percorso di pochi km per riscoprire le zone più suggestive di Larino sotto un punto di vista diverso: quello musicale. Attraverseremo la cittadina scoprendo fonti storiche interessanti, leggende, aneddoti, melodie. Una passeggiata che aprirà un dialogo tra presente e passato, tra la musica del sud Italia, la musica dei balcani, la musica araba: tutte culture che a Larino sono passate nel corso dei secoli, lasciando un segno nell'identità locale.",
   },
