@@ -17,6 +17,7 @@ type Props = {
   defaultMessage: string;
   recipientEmail: string;
   sessions?: string[];
+  sessionLabel?: string;
 };
 
 type SubmitState = "idle" | "loading" | "success" | "error";
@@ -28,6 +29,7 @@ export default function LabBookingForm({
   defaultMessage,
   recipientEmail,
   sessions,
+  sessionLabel = "Data e orario",
 }: Props) {
   const [state, setState] = useState<SubmitState>("idle");
   const [errorDetail, setErrorDetail] = useState("");
@@ -132,7 +134,7 @@ export default function LabBookingForm({
 
       {availableSessions.length > 1 ? (
         <label className="block">
-          <span className={labelClass}>Data e orario</span>
+          <span className={labelClass}>{sessionLabel}</span>
           <select
             className={inputClass}
             name="session"
@@ -141,7 +143,7 @@ export default function LabBookingForm({
             value={selectedSession}
             onChange={(event) => setSelectedSession(event.target.value)}
           >
-            <option value="">Scegli una sessione</option>
+            <option value="">Scegli un&apos;opzione</option>
             {availableSessions.map((session) => (
               <option key={session} value={session}>
                 {session}
@@ -153,7 +155,7 @@ export default function LabBookingForm({
         <>
           <input type="hidden" name="session" value={singleSession} />
           <p className="text-sm leading-relaxed text-black/80">
-            <span className={labelClass}>Sessione</span>
+            <span className={labelClass}>{sessionLabel}</span>
             <span className="mt-2 block">{singleSession}</span>
           </p>
         </>

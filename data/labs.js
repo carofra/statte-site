@@ -100,6 +100,9 @@ const labsSource = [
     priceEuro: 65,
     maxParticipants: 10,
     audience: "Due gruppi · 3-5 anni e 6-10 anni",
+    bookingSessionSelect: true,
+    bookingSessionLabel: "Fascia d'età",
+    bookingSessions: ["3-5 anni", "6-10 anni"],
     schedule: [
       "Lunedì 22 giugno · 3-5 anni · 10:00-11:00",
       "Lunedì 22 giugno · 6-10 anni · 11:00-12:00",

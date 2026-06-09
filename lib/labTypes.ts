@@ -8,6 +8,12 @@ export type Workshop = {
   maxParticipants?: number;
   minParticipants?: number;
   schedule?: string[];
+  /** Se true, il form di prenotazione mostra il menu di scelta. */
+  bookingSessionSelect?: boolean;
+  /** Opzioni mostrate nel menu di prenotazione (se assenti, usa `schedule`). */
+  bookingSessions?: string[];
+  /** Etichetta del campo di scelta nel form (default "Data e orario"). */
+  bookingSessionLabel?: string;
   audience?: string;
   bookingEmail?: string;
   bookingNotice?: string;

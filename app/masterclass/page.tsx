@@ -61,7 +61,6 @@ export default function MasterclassPage() {
                 <LabBookingPanel
                   labTitle={masterclass.title}
                   bookingType="masterclass"
-                  sessions={masterclass.schedule}
                 />
               </div>
             </div>

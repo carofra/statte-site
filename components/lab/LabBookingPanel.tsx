@@ -18,6 +18,8 @@ type Props = {
   bookingType?: "laboratorio" | "masterclass";
   /** Date e orari disponibili per la prenotazione (da data/labs.js). */
   sessions?: string[];
+  /** Etichetta del campo di scelta nel form (default "Data e orario"). */
+  sessionLabel?: string;
   /**
    * Se presente, sostituisce il bottone di prenotazione con questa nota
    * (es. laboratorio riservato a un'utenza specifica).
@@ -30,6 +32,7 @@ export default function LabBookingPanel({
   labTitle,
   bookingType = "laboratorio",
   sessions,
+  sessionLabel,
   bookingNotice,
 }: Props) {
   const notice = typeof bookingNotice === "string" ? bookingNotice.trim() : "";
@@ -69,6 +72,7 @@ export default function LabBookingPanel({
               defaultMessage={defaultMessage}
               recipientEmail={recipientEmail}
               sessions={sessions}
+              sessionLabel={sessionLabel}
             />
           </details>
         ) : (

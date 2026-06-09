@@ -76,7 +76,12 @@ export default async function LabPage({ params }: Props) {
               <LabBookingPanel
                 bookingEmail={lab.bookingEmail}
                 labTitle={lab.title}
-                sessions={lab.schedule}
+                sessions={
+                  lab.bookingSessionSelect
+                    ? lab.bookingSessions ?? lab.schedule
+                    : undefined
+                }
+                sessionLabel={lab.bookingSessionLabel}
                 bookingNotice={lab.bookingNotice}
               />
             </div>
