@@ -17,6 +17,7 @@ const artistsSource = [
     name: "Marta Ant",
     slug: "marta-ant",
     bio: "Nata nel 1987, Marta Ant è un'artista multidisciplinare italiana che fonde immagini surreali e inconsce con un'espressione visiva, materica e corporea. Attingendo alla danza contemporanea, al teatro fisico, alla commedia e all'improvvisazione, il suo lavoro sfuma i confini tra realtà e finzione attraverso immaginazione, colore, energia collettiva, forza femminile e gioco. Ha collaborato con artisti internazionali tra cui Jeremy Shaw, Leila Hekmat e Dafna Maimon, e realizzato performance come Radici, Honey Blood and Milk, Liquid Machine e Anamnesi. Il video di Honey, Blood and Milk è stato presentato nella mostra \"Women by women\", curata da Vogue alla Pinacoteca di Brera (2026); tra i suoi lavori video figurano anche Haut, premiato a Cannes (2023), e Transformation, vincitore al Festival Breaking8 (Cagliari).",
+    portfolioUrl: "/portfolio/martaant-portoflio.pdf",
     socials: [
       {
         platform: "Instagram",
