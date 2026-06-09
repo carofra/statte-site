@@ -49,7 +49,7 @@ const labsSource = [
     maxParticipants: 10,
     schedule: [
       "Mercoledì 17 giugno · 17:30-19:00",
-      "Giovedì 18 giugno · 11:00-13:30",
+      "Giovedì 18 giugno · 10:00-12:30",
     ],
     description:
       "Il laboratorio unisce design e stampa analogica - la cianotipia - alla riscoperta del territorio molisano. I bambini conoscono il valore della sosta creativa: fermarsi, osservare un dettaglio, raccogliere una memoria e trasformarla in un segno indelebile attraverso la luce.",
@@ -148,7 +148,7 @@ const labsSource = [
     curator: "Eleonora Moro",
     priceEuro: 25,
     minParticipants: 10,
-    schedule: ["Domenica 21 giugno · 09:00"],
+    schedule: ["Sabato 20 giugno · 09:00"],
     description:
       "Un percorso di pochi km per riscoprire le zone più suggestive di Larino sotto un punto di vista diverso: quello musicale. Attraverseremo la cittadina scoprendo fonti storiche interessanti, leggende, aneddoti, melodie. Una passeggiata che aprirà un dialogo tra presente e passato, tra la musica del sud Italia, la musica dei balcani, la musica araba: tutte culture che a Larino sono passate nel corso dei secoli, lasciando un segno nell'identità locale.",
   },
