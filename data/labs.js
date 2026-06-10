@@ -3,7 +3,7 @@
  * Prenotazione: form → Web3Forms (vedi LabBookingForm e .env.local).
  * Se `bookingEmail` manca, si usano `NEXT_PUBLIC_BOOKING_EMAIL` e poi `BOOKING_EMAIL_FALLBACK` in lib/stantteData.ts.
  *
- * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; priceEuro: number; maxParticipants?: number; minParticipants?: number; schedule?: string[]; requirements?: string; materials?: string[]; audience?: string; bookingEmail?: string; bookingNotice?: string }} Workshop
+ * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; priceEuro: number; maxParticipants?: number; minParticipants?: number; schedule?: string[]; requirements?: string; materials?: string[]; audience?: string; bookingSessionSelect?: boolean; bookingSessions?: string[]; bookingSessionLabel?: string; bookingEmail?: string; bookingNotice?: string }} Workshop
  */
 
 /** Definizioni laboratorio: l'ordine di visualizzazione è sempre alfabetico per titolo. */
@@ -15,7 +15,7 @@ const labsSource = [
     curator: "Lorenzo M. e Paolo G.",
     priceEuro: 65,
     maxParticipants: 12,
-    audience: "Dai 12-13 anni",
+    audience: "Dai 12/13 anni",
     schedule: [
       "Martedì 16 giugno · 10:00-13:00",
       "Mercoledì 17 giugno · 10:00-13:00",
@@ -153,6 +153,10 @@ const labsSource = [
     ],
     description:
       "Il laboratorio propone la musica come gioco, espressione, comunicazione e relazione. I bambini entrano nel linguaggio sonoro partendo da immagini, filastrocche e ninne nanne del Molise e si avvicinano al patrimonio culturale locale in modo attivo e coinvolgente. Attraverso gioco ed esplorazione, i bambini confrontano i materiali, li rielaborano in modo creativo e vivono la musica come scoperta e divertimento. Le attività si svolgono in due gruppi separati, un'ora al giorno per ciascuno: 3-5 anni dalle 10:00 alle 11:00 e 6-10 anni dalle 11:00 alle 12:00.",
+    requirements: "Non è richiesto nulla di particolare.",
+    materials: [
+      "Tutto il materiale viene fornito dai curatori del laboratorio.",
+    ],
   },
   {
     id: "spazio-vivo",
@@ -201,9 +205,12 @@ const labsSource = [
     curator: "Eleonora Moro",
     priceEuro: 25,
     minParticipants: 10,
+    audience: "Aperto a tutti (i minori accompagnati)",
     schedule: ["Sabato 20 giugno · 09:00"],
     description:
       "Un percorso di pochi km per riscoprire le zone più suggestive di Larino sotto un punto di vista diverso: quello musicale. Attraverseremo la cittadina scoprendo fonti storiche interessanti, leggende, aneddoti, melodie. Una passeggiata che aprirà un dialogo tra presente e passato, tra la musica del sud Italia, la musica dei balcani, la musica araba: tutte culture che a Larino sono passate nel corso dei secoli, lasciando un segno nell'identità locale.",
+    requirements:
+      "Nessun prerequisito: bastano curiosità ed entusiasmo. È consigliato un abbigliamento comodo.",
   },
   {
     id: "ricamo-su-carta",
