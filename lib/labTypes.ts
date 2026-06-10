@@ -8,6 +8,10 @@ export type Workshop = {
   maxParticipants?: number;
   minParticipants?: number;
   schedule?: string[];
+  /** Requisiti / cosa serve sapere o indossare per partecipare. */
+  requirements?: string;
+  /** Materiali o strumenti che il partecipante deve portare con sé. */
+  materials?: string[];
   /** Se true, il form di prenotazione mostra il menu di scelta. */
   bookingSessionSelect?: boolean;
   /** Opzioni mostrate nel menu di prenotazione (se assenti, usa `schedule`). */

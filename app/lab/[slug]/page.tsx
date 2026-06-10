@@ -1,4 +1,5 @@
 import LabBookingPanel from "@/components/lab/LabBookingPanel";
+import LabPreparation from "@/components/lab/LabPreparation";
 import LabPriceInfo from "@/components/lab/LabPriceInfo";
 import LabScheduleInfo from "@/components/lab/LabScheduleInfo";
 import LabProgramFrame, { labProgramDisplayClass } from "@/components/lab/LabProgramFrame";
@@ -64,6 +65,7 @@ export default async function LabPage({ params }: Props) {
                   {lab.description}
                 </p>
               </article>
+              <LabPreparation requirements={lab.requirements} materials={lab.materials} />
             </div>
             <div className="md:col-span-4 md:flex md:flex-col md:justify-end">
               {lab.schedule?.length ? <LabScheduleInfo sessions={lab.schedule} /> : null}

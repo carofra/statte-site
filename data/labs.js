@@ -3,7 +3,7 @@
  * Prenotazione: form → Web3Forms (vedi LabBookingForm e .env.local).
  * Se `bookingEmail` manca, si usano `NEXT_PUBLIC_BOOKING_EMAIL` e poi `BOOKING_EMAIL_FALLBACK` in lib/stantteData.ts.
  *
- * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; priceEuro: number; maxParticipants?: number; minParticipants?: number; schedule?: string[]; audience?: string; bookingEmail?: string; bookingNotice?: string }} Workshop
+ * @typedef {{ id: string; slug: string; title: string; curator: string; description: string; priceEuro: number; maxParticipants?: number; minParticipants?: number; schedule?: string[]; requirements?: string; materials?: string[]; audience?: string; bookingEmail?: string; bookingNotice?: string }} Workshop
  */
 
 /** Definizioni laboratorio: l'ordine di visualizzazione è sempre alfabetico per titolo. */
@@ -15,6 +15,7 @@ const labsSource = [
     curator: "Lorenzo M. e Paolo G.",
     priceEuro: 65,
     maxParticipants: 12,
+    audience: "Dai 12-13 anni",
     schedule: [
       "Martedì 16 giugno · 10:00-13:00",
       "Mercoledì 17 giugno · 10:00-13:00",
@@ -23,6 +24,10 @@ const labsSource = [
     ],
     description:
       "Il laboratorio accompagna, passo dopo passo, chi desidera avvicinarsi alle basi della musica ascoltata e suonata, per sviluppare maggiore consapevolezza nell'ascolto. È aperto a persone di ogni livello di preparazione.",
+    requirements: "Non è richiesta alcuna competenza tecnica.",
+    materials: [
+      "Chi possiede uno strumento musicale può portarlo; non è comunque necessario.",
+    ],
   },
   {
     id: "viaggi-nei-ritmi-del-sud",
@@ -31,6 +36,7 @@ const labsSource = [
     curator: "Maria Martino",
     priceEuro: 30,
     maxParticipants: 10,
+    audience: "Aperto a tutti",
     schedule: [
       "Mercoledì 17 giugno · 14:30-17:00",
       "Giovedì 18 giugno · 16:00-18:00",
@@ -39,6 +45,11 @@ const labsSource = [
     ],
     description:
       "Il laboratorio è un percorso aperto a tuttə sulle danze tradizionali del Centro-Sud Italia, in particolare pizzica e spallata. Nel corso di più incontri, i partecipanti sono guidati in un'esperienza di ritmo, ascolto e condivisione e riscoprono il legame tra corpo, musica e territorio. Non richiede esperienza pregressa e accoglie persone di tutte le età, valorizzando l'incontro tra generazioni e differenze.",
+    requirements:
+      "Non serve alcuna esperienza; basta un abbigliamento comodo. Si può danzare anche a piedi nudi.",
+    materials: [
+      "Una gonna lunga, facoltativa, per chi desidera indossarla.",
+    ],
   },
   {
     id: "cacciatori-di-ombre",
@@ -47,12 +58,19 @@ const labsSource = [
     curator: "Raffaella Mastrogiuseppe",
     priceEuro: 10,
     maxParticipants: 10,
+    audience: "Dai 6 ai 12 anni",
     schedule: [
       "Mercoledì 17 giugno · 17:30-19:00",
       "Giovedì 18 giugno · 10:00-12:30",
     ],
     description:
       "Il laboratorio unisce design e stampa analogica - la cianotipia - alla riscoperta del territorio molisano. I bambini conoscono il valore della sosta creativa: fermarsi, osservare un dettaglio, raccogliere una memoria e trasformarla in un segno indelebile attraverso la luce.",
+    requirements:
+      "Non serve alcuna competenza tecnica: bastano curiosità e voglia di osservare. Meglio indossare scarpe comode, abiti che possano sporcarsi e, se possibile, un grembiule.",
+    materials: [
+      "Un oggetto del cuore o un piccolo reperto di famiglia: un pizzo, una chiave, un bottone.",
+      "Una bustina di stoffa o carta per raccogliere ciò che si incontra lungo il percorso.",
+    ],
   },
   {
     id: "l-arte-del-re-design",
@@ -61,9 +79,15 @@ const labsSource = [
     curator: "Giusi Cornacchione",
     priceEuro: 15,
     maxParticipants: 10,
+    audience: "Adulti e ragazzi (non adatto ai bambini)",
     schedule: ["Venerdì 19 giugno · 10:00-13:00"],
     description:
       "Il laboratorio invita a scoprire la moda e le sue possibilità espressive, partendo da modellistica e moulage. I partecipanti esplorano insieme come il tessuto si modella sul manichino, da materia semplice a forma tridimensionale che dialoga con il corpo. È pensato per chiunque voglia avvicinarsi al tema: non servono competenze pregresse, solo voglia di sperimentare e di guardare ai vestiti con occhi nuovi.",
+    requirements:
+      "Non è richiesta alcuna competenza. Non è adatto ai bambini, perché si lavora con strumenti come forbici e aghi da cucito.",
+    materials: [
+      "Un capo da personalizzare: una t-shirt, una camicia o un altro indumento in tessuto leggero, più facile da lavorare.",
+    ],
   },
   {
     id: "costruire-immagini",
@@ -72,7 +96,7 @@ const labsSource = [
     curator: "Marco Di Prisco",
     priceEuro: 60,
     maxParticipants: 12,
-    audience: "ragazzi e adulti",
+    audience: "Dai 14 anni (aperto agli adulti)",
     schedule: [
       "Venerdì 19 giugno · 16:00-19:00",
       "Sabato 20 giugno · 10:00-13:00",
@@ -80,17 +104,29 @@ const labsSource = [
     ],
     description:
       "Il laboratorio pratica collage analogico e digitale per costruire un immaginario visivo personale legato al territorio di Larino. Attraverso osservazione, raccolta e sperimentazione, i partecipanti sono guidati nella creazione di immagini con materiali eterogenei: fotografie, riviste, carte dipinte, texture raccolte nello spazio urbano e elementi digitali.",
+    requirements:
+      "Non servono competenze avanzate: basta un minimo di dimestichezza con il computer per la parte digitale e tanta voglia di sperimentare con le immagini.",
+    materials: [
+      "Un laptop o un iPad con un software di fotoritocco già installato, come Adobe Photoshop o Affinity.",
+      "Uno smartphone per raccogliere immagini.",
+      "Forbici e colla, se si vuole lavorare anche sul collage analogico (facoltativi).",
+    ],
   },
   {
     id: "draw-drink",
     slug: "draw-drink",
-    title: "DRINK 'N' DROW",
+    title: "DRINK 'N' DRAW",
     curator: "Denny Vitulli e La stozza",
     priceEuro: 25,
     maxParticipants: 10,
+    audience: "Dai 18 anni",
     schedule: ["Domenica 21 giugno · 17:00-19:00"],
     description:
       "Il laboratorio affronta lo studio narrativo e illustrativo del fumetto, con un approccio affine al cinema: sceneggiatura, inquadrature, sequenza delle immagini e costruzione della storia.",
+    requirements: "È utile una minima dimestichezza con il disegno.",
+    materials: [
+      "Fogli A4, matite, tratto pen, temperino e gomma.",
+    ],
   },
   {
     id: "musichiamo",
@@ -125,10 +161,18 @@ const labsSource = [
     curator: "Annarita Iammarone",
     priceEuro: 10,
     maxParticipants: 15,
-    audience: "adulti e ragazzi",
+    audience: "Dai 6 anni",
     schedule: ["Lunedì 22 giugno · 09:30-12:30"],
     description:
       "Il laboratorio è uno studio dal vivo di particolari architettonici e paesaggistici, en plein air. Il progetto \"Riproduzione di particolari architettonici\" è esperienziale e inclusivo: coinvolge bambini, ragazzi e adulti in un'attività artistica e manuale a contatto diretto con l'ambiente.",
+    requirements:
+      "Non serve alcuna competenza tecnica; trattandosi di un'attività all'aperto, meglio scarpe comode e un cappellino per il sole.",
+    materials: [
+      "Materiale di recupero: scatole con coperchio e tessuti in disuso.",
+      "Colori acrilici, matite colorate e colla.",
+      "Gusci d'uovo lavati e ridotti in piccoli pezzi irregolari.",
+      "Pennelli di varie dimensioni e un piccolo contenitore per l'acqua.",
+    ],
   },
   {
     id: "pittura-magica",
@@ -137,12 +181,18 @@ const labsSource = [
     curator: "Giada Iannetta",
     priceEuro: 25,
     maxParticipants: 10,
+    audience: "Dai 5 anni (i più piccoli accompagnati)",
     schedule: [
       "Giovedì 25 giugno · 14:00-18:00",
       "Venerdì 26 giugno · 11:00-13:00",
     ],
     description:
       "Il laboratorio è un viaggio tra arte e meraviglia: i bambini scoprono come nascono i colori, quasi per magia. Esperienza giocosa e sorprendente che li avvicina alla natura attraverso colore, scoperta e fantasia.",
+    requirements:
+      "Non è richiesto nulla di particolare; meglio indossare abiti che possano macchiarsi.",
+    materials: [
+      "Un grembiule o un abito vecchio da poter sporcare.",
+    ],
   },
   {
     id: "open-dialogues",
@@ -162,9 +212,15 @@ const labsSource = [
     curator: "Rebecca Fiore",
     priceEuro: 25,
     maxParticipants: 10,
+    audience: "Dai 15 anni",
     schedule: ["Mercoledì 24 giugno · 15:00-19:00"],
     description:
       "Laboratorio creativo di ricamo su carta. Realizzazione di una cornice portafoto composta da cartoncino e fotografia. I partecipanti ricameranno un cartoncino sul quale è stata precedentemente applicata una fotografia ispirata alla regione Molise (paesaggi, elementi culturali, tradizioni, ecc.). Il ricamo (di un disegno e/o di un breve testo) sarà in armonia con la fotografia stessa. Al termine dell'attività il cartoncino ricamato verrà inserito nella cornice portafoto.",
+    requirements: "Non è necessaria alcuna competenza pregressa.",
+    materials: [
+      "Una cornice portafoto di circa 20 x 30 cm.",
+      "Colori, pennarelli o tratto pen colorati.",
+    ],
   },
 ];
 
