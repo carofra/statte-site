@@ -233,9 +233,10 @@ const labsSource = [
     id: "memorie-nel-tessuto",
     slug: "memorie-nel-tessuto",
     title: "MEMORIE NEL TESSUTO",
-    curator: "",
+    curator: "Giada Iannetta",
     priceEuro: 35,
     audience: "Dai 10 anni (pensato per un pubblico adulto)",
+    schedule: ["Venerdì 26 giugno · 17:00"],
     description:
       "Un laboratorio di tintura naturale sul tessuto, tra gesto individuale e opera condivisa. Ogni partecipante realizza la propria bandana con tecniche di immersione, stampa e segno, mentre il gruppo interviene insieme su un grande tessuto collettivo fatto di impronte e tracce vegetali: una mappa sensibile che racconta il rapporto tra gesto, comunità e territorio. Qui il processo conta più del risultato.",
     requirements: "Non è richiesta alcuna competenza.",
