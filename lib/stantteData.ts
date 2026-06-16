@@ -65,7 +65,88 @@ export const mostraFinale = {
     "Chiusura in forma espositiva della residenza, aperta alla cittadinanza, ai media e alle istituzioni. Presentazione e restituzione pubblica delle pratiche condivise e delle opere realizzate durante le due settimane di permanenza: un percorso site-specific che valorizza i luoghi ospitanti e testimonia l'impatto culturale dell'incontro tra artisti e territorio molisano.",
 };
 
-export const guestLogos: string[] = ["Le Fonticelle", "Sagra Futuro", "manoAmano"];
+export type SponsorTier = "patrocinio" | "main-sponsor" | "sponsor" | "partner";
+
+export type SponsorLogo = {
+  name: string;
+  tier: SponsorTier;
+  src: string;
+  width: number;
+  height: number;
+};
+
+export const sponsorTierLabels: Record<SponsorTier, string> = {
+  patrocinio: "Con il patrocinio di",
+  "main-sponsor": "Main sponsor",
+  sponsor: "Sponsor",
+  partner: "Partner",
+};
+
+export const sponsorTierOrder: SponsorTier[] = [
+  "patrocinio",
+  "main-sponsor",
+  "sponsor",
+  "partner",
+];
+
+export const sponsors: SponsorLogo[] = [
+  {
+    name: "Patrocinio",
+    tier: "patrocinio",
+    src: "/sponsors/patrocinio/patrocinio.png",
+    width: 600,
+    height: 600,
+  },
+  {
+    name: "Main sponsor 1",
+    tier: "main-sponsor",
+    src: "/sponsors/main-sponsor/mainsponsor1.png",
+    width: 600,
+    height: 600,
+  },
+  {
+    name: "Main sponsor 2",
+    tier: "main-sponsor",
+    src: "/sponsors/main-sponsor/mainsponsor2.png",
+    width: 600,
+    height: 369,
+  },
+  {
+    name: "Sponsor 1",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/sponsor1.png",
+    width: 600,
+    height: 398,
+  },
+  {
+    name: "Sponsor 2",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/sponsor2.png",
+    width: 600,
+    height: 424,
+  },
+  {
+    name: "Sponsor 3",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/sponsor3.png",
+    width: 600,
+    height: 600,
+  },
+  {
+    name: "Sponsor 4",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/sponsor4.png",
+    width: 3308,
+    height: 2339,
+  },
+  {
+    name: "Partner",
+    tier: "partner",
+    src: "/sponsors/partner/partner.png",
+    width: 600,
+    height: 600,
+  },
+];
 
 export const manifestoPhrases: string[] = [
   "Stattð è un progetto culturale che nasce dal desiderio di creare uno spazio di ascolto, dialogo e produzione artistica nel cuore del Molise.",

@@ -52,9 +52,11 @@ export default async function LabPage({ params }: Props) {
           >
             {lab.title}
           </h1>
-          <p className="mt-5 max-w-3xl text-base italic leading-snug text-black md:mt-6 md:text-lg">
-            {lab.curator}
-          </p>
+          {lab.curator ? (
+            <p className="mt-5 max-w-3xl text-base italic leading-snug text-black md:mt-6 md:text-lg">
+              {lab.curator}
+            </p>
+          ) : null}
         </header>
 
         <div className="border-b border-black py-8 md:py-10 lg:py-12">
