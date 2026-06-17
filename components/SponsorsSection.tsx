@@ -7,11 +7,14 @@ import {
   sponsors,
 } from "@/lib/stantteData";
 
-/** Cella logo unica per tutti i tier: stessa altezza/larghezza, contenuto centrato. */
-const logoCellClass =
-  "flex h-24 w-[10.5rem] shrink-0 items-center justify-center md:h-28 md:w-[12.5rem] lg:h-32 lg:w-[14rem]";
+const logoGridClass =
+  "mt-8 grid grid-cols-2 justify-items-start gap-x-3 gap-y-6 md:mt-10 lg:grid-cols-3 lg:gap-x-5";
 
-const logoImageClass = "max-h-full max-w-full object-contain";
+/** Cella logo unica per tutti i tier: stessa altezza/larghezza, allineata a sinistra. */
+const logoCellClass =
+  "flex h-24 w-[10.5rem] shrink-0 items-center justify-start md:h-28 md:w-[12.5rem] lg:h-32 lg:w-[14rem]";
+
+const logoImageClass = "max-h-full max-w-full object-contain object-left";
 
 const sponsorRows: Array<
   | { tiers: [SponsorTier, SponsorTier]; layout: "split" }
@@ -23,7 +26,7 @@ const sponsorRows: Array<
 ];
 
 const rowGridClass =
-  "grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-start md:gap-x-6 lg:gap-x-8";
+  "grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-x-8 lg:gap-x-10";
 
 function SponsorLogoItem({
   sponsor,
@@ -31,7 +34,7 @@ function SponsorLogoItem({
   sponsor: (typeof sponsors)[number];
 }) {
   return (
-    <li className="flex flex-col items-center">
+    <li className="flex flex-col items-start">
       <div className={logoCellClass}>
         <Image
           src={sponsor.src}
@@ -46,7 +49,7 @@ function SponsorLogoItem({
         />
       </div>
       {sponsor.caption ? (
-        <p className="mt-1.5 w-[10.5rem] text-center font-serif text-[10px] font-normal uppercase leading-none tracking-[0.05em] text-[#1d1d1b] md:w-[12.5rem] md:text-[11px] lg:w-[14rem]">
+        <p className="mt-1.5 w-[10.5rem] text-left font-serif text-[10px] font-normal uppercase leading-none tracking-[0.05em] text-[#1d1d1b] md:w-[12.5rem] md:text-[11px] lg:w-[14rem]">
           {sponsor.caption.prefix}
           <span className="font-bold">{sponsor.caption.emphasis}</span>
         </p>
@@ -59,20 +62,12 @@ function SponsorTierBlock({ tier }: { tier: SponsorTier }) {
   const tierSponsors = sponsors.filter((sponsor) => sponsor.tier === tier);
   if (tierSponsors.length === 0) return null;
 
-  const isSponsorRow = tier === "sponsor";
-
   return (
     <div className="flex min-w-0 flex-col">
       <h3 className="text-[10px] font-normal uppercase leading-none tracking-[0.16em] text-[#1d1d1b]/50 md:text-[11px] lg:text-xs">
         {sponsorTierLabels[tier]}
       </h3>
-      <ul
-        className={`mt-8 flex md:mt-10 ${
-          isSponsorRow
-            ? "flex-wrap items-start gap-x-3 gap-y-6 md:flex-nowrap md:gap-x-4 lg:gap-x-5"
-            : "flex-wrap items-start gap-x-5 gap-y-6 md:gap-x-6 lg:gap-x-8"
-        }`}
-      >
+      <ul className={logoGridClass}>
         {tierSponsors.map((sponsor) => (
           <SponsorLogoItem key={sponsor.src} sponsor={sponsor} />
         ))}

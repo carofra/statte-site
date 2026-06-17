@@ -150,6 +150,13 @@ export const sponsors: SponsorLogo[] = [
     height: 281,
   },
   {
+    name: "ABSE",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/logo-abse.png",
+    width: 354,
+    height: 500,
+  },
+  {
     name: "Villaggio delle Arti",
     tier: "partner",
     src: "/sponsors/partner/logo-villaggio-delle-arti.png",
