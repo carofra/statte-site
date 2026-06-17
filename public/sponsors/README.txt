@@ -17,7 +17,7 @@ Loghi sponsor / partner / patrocini
    - (facoltativo) un link al sito dello sponsor
 
 4. I loghi vengono poi elencati in lib/stantteData.ts (export `sponsors`)
-   e mostrati nella barra scorrevole (components/RunningMarquee.tsx),
+   e mostrati nella sezione Network (components/SponsorsSection.tsx),
    raggruppati per categoria nell'ordine definito in `sponsorTierOrder`.
 
 Suggerimento: loghi con altezza simile (es. ~200-300px di altezza) rendono

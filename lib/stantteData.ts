@@ -73,78 +73,88 @@ export type SponsorLogo = {
   src: string;
   width: number;
   height: number;
+  /** Didascalia sotto il logo: testo normale + parte in evidenza. */
+  caption?: { prefix: string; emphasis: string };
 };
 
 export const sponsorTierLabels: Record<SponsorTier, string> = {
-  patrocinio: "Con il patrocinio di",
-  "main-sponsor": "Main sponsor",
+  patrocinio: "Patrocinio",
+  "main-sponsor": "Main Sponsor",
   sponsor: "Sponsor",
   partner: "Partner",
 };
 
 export const sponsorTierOrder: SponsorTier[] = [
   "patrocinio",
+  "partner",
   "main-sponsor",
   "sponsor",
-  "partner",
 ];
 
 export const sponsors: SponsorLogo[] = [
   {
-    name: "Patrocinio",
+    name: "Comune di Larino",
     tier: "patrocinio",
-    src: "/sponsors/patrocinio/patrocinio.png",
-    width: 600,
-    height: 600,
+    src: "/sponsors/patrocinio/logo-comune-di-larino.png",
+    width: 500,
+    height: 500,
+    caption: { prefix: "COMUNE DI ", emphasis: "LARINO" },
   },
   {
-    name: "Main sponsor 1",
+    name: "Dan Zika Termoli",
     tier: "main-sponsor",
-    src: "/sponsors/main-sponsor/mainsponsor1.png",
-    width: 600,
-    height: 600,
+    src: "/sponsors/main-sponsor/logo-danzika.png",
+    width: 500,
+    height: 500,
   },
   {
-    name: "Main sponsor 2",
+    name: "Ittico Termoli",
     tier: "main-sponsor",
-    src: "/sponsors/main-sponsor/mainsponsor2.png",
-    width: 600,
-    height: 369,
+    src: "/sponsors/main-sponsor/logo-ittico.png",
+    width: 500,
+    height: 308,
   },
   {
-    name: "Sponsor 1",
+    name: "La Molisana",
     tier: "sponsor",
-    src: "/sponsors/sponsor/sponsor1.png",
-    width: 600,
-    height: 398,
+    src: "/sponsors/sponsor/logo-la-molisana.png",
+    width: 500,
+    height: 354,
   },
   {
-    name: "Sponsor 2",
+    name: "Caffè Camardo",
     tier: "sponsor",
-    src: "/sponsors/sponsor/sponsor2.png",
-    width: 600,
-    height: 424,
+    src: "/sponsors/sponsor/logo-caffe-camardo.png",
+    width: 500,
+    height: 331,
   },
   {
-    name: "Sponsor 3",
+    name: "Serra del Parco",
     tier: "sponsor",
-    src: "/sponsors/sponsor/sponsor3.png",
-    width: 600,
-    height: 600,
+    src: "/sponsors/sponsor/logo-serra-del-parco.png",
+    width: 500,
+    height: 500,
   },
   {
-    name: "Sponsor 4",
+    name: "mó",
     tier: "sponsor",
-    src: "/sponsors/sponsor/sponsor4.png",
-    width: 3308,
-    height: 2339,
+    src: "/sponsors/sponsor/logo-mo.png",
+    width: 500,
+    height: 354,
   },
   {
-    name: "Partner",
+    name: "In Cerchio",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/logo-in-cerchio.png",
+    width: 500,
+    height: 281,
+  },
+  {
+    name: "Villaggio delle Arti",
     tier: "partner",
-    src: "/sponsors/partner/partner.png",
-    width: 600,
-    height: 600,
+    src: "/sponsors/partner/logo-villaggio-delle-arti.png",
+    width: 500,
+    height: 500,
   },
 ];
 

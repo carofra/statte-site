@@ -1,13 +1,12 @@
 import { Fragment } from "react";
-import Image from "next/image";
-import { sponsorTierLabels, sponsorTierOrder, sponsors } from "@/lib/stantteData";
+import { artistNames } from "@/data/artists.js";
 
 const separatorClass =
   "select-none text-[11px] font-normal text-foreground md:text-sm";
 const metaClass =
   "text-[9px] font-normal uppercase tracking-[0.42em] text-foreground md:text-[10px]";
-const labelClass =
-  "text-[9px] font-normal uppercase tracking-[0.34em] text-foreground/60 md:text-[10px]";
+const artistClass =
+  "text-[12px] font-normal tracking-[0.1em] text-foreground md:text-[15px] md:tracking-[0.12em] lg:text-base";
 
 function Separator() {
   return (
@@ -23,28 +22,12 @@ function MarqueeStrip() {
       <span className={metaClass}>15-28 GIUGNO 2026</span>
       <Separator />
       <span className={metaClass}>MOLISE</span>
-      {sponsorTierOrder.map((tier) => {
-        const tierSponsors = sponsors.filter((sponsor) => sponsor.tier === tier);
-        if (tierSponsors.length === 0) return null;
-
-        return (
-          <Fragment key={tier}>
-            <Separator />
-            <span className={labelClass}>{sponsorTierLabels[tier]}</span>
-            {tierSponsors.map((sponsor) => (
-              <Image
-                key={sponsor.src}
-                src={sponsor.src}
-                alt={sponsor.name}
-                width={sponsor.width}
-                height={sponsor.height}
-                sizes="(max-width: 768px) 90px, 130px"
-                className="h-9 w-auto max-w-[7.5rem] object-contain md:h-11 md:max-w-[9.5rem] lg:h-12 lg:max-w-[11rem]"
-              />
-            ))}
-          </Fragment>
-        );
-      })}
+      {artistNames.map((name) => (
+        <Fragment key={name}>
+          <Separator />
+          <span className={artistClass}>{name}</span>
+        </Fragment>
+      ))}
     </div>
   );
 }

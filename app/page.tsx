@@ -8,6 +8,7 @@ import MasterclassSection from "@/components/MasterclassSection";
 import MostraSection from "@/components/MostraSection";
 import ProgrammaSection from "@/components/ProgrammaSection";
 import RunningMarquee from "@/components/RunningMarquee";
+import SponsorsSection from "@/components/SponsorsSection";
 import TalkSection from "@/components/TalkSection";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <LabsSection />
         <TalkSection />
         <MostraSection />
+        <SponsorsSection />
       </main>
       <RunningMarquee />
       <Footer />
