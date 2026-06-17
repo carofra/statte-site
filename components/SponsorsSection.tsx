@@ -1,5 +1,6 @@
 import Image from "next/image";
 import LabProgramFrame from "@/components/lab/LabProgramFrame";
+import SponsorLogosGate from "@/components/SponsorLogosGate";
 import {
   type SponsorTier,
   sponsorTierLabels,
@@ -37,7 +38,10 @@ function SponsorLogoItem({
           alt={sponsor.name}
           width={sponsor.width}
           height={sponsor.height}
-          sizes="(max-width: 768px) 160px, 200px"
+          sizes="(max-width: 768px) 168px, 224px"
+          loading="lazy"
+          fetchPriority="low"
+          unoptimized
           className={logoImageClass}
         />
       </div>
@@ -84,10 +88,11 @@ export default function SponsorsSection() {
   return (
     <section
       id="network"
-      className="scroll-mt-20 border-t border-[#1d1d1b] bg-background pb-20 pt-20 text-[#1d1d1b] md:pb-28 md:pt-28 lg:pb-32 lg:pt-32"
+      className="scroll-mt-20 border-t border-[#1d1d1b] bg-background pb-20 pt-20 text-[#1d1d1b] [content-visibility:auto] md:pb-28 md:pt-28 lg:pb-32 lg:pt-32"
     >
       <LabProgramFrame>
-        <div className="flex flex-col gap-14 md:gap-16 lg:gap-20">
+        <SponsorLogosGate>
+          <div className="flex flex-col gap-14 md:gap-16 lg:gap-20">
           {sponsorRows.map((row) => {
             const visibleTiers = row.tiers.filter((tier) =>
               sponsors.some((sponsor) => sponsor.tier === tier),
@@ -105,7 +110,8 @@ export default function SponsorsSection() {
               </div>
             );
           })}
-        </div>
+          </div>
+        </SponsorLogosGate>
       </LabProgramFrame>
     </section>
   );
