@@ -169,6 +169,13 @@ export const sponsors: SponsorLogo[] = [
     logoScale: 0.88,
   },
   {
+    name: "Anna Parrucchieri",
+    tier: "sponsor",
+    src: "/sponsors/sponsor/logo-anna-parrucchieri.png",
+    width: 500,
+    height: 128,
+  },
+  {
     name: "Villaggio delle Arti",
     tier: "partner",
     src: "/sponsors/partner/logo-villaggio-delle-arti.png",
