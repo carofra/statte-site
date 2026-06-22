@@ -159,16 +159,14 @@ export const sponsors: SponsorLogo[] = [
     src: "/sponsors/sponsor/logo-abse.png",
     width: 354,
     height: 500,
-    logoScale: 1.15,
   },
   {
     name: "Giulia Pontico Makeup",
     tier: "sponsor",
     src: "/sponsors/sponsor/logo-giulia.png",
     width: 500,
-    height: 210,
-    logoCellClass:
-      "flex h-24 w-[16rem] shrink-0 items-center justify-start md:h-28 md:w-[19rem] lg:h-32 lg:w-[22rem]",
+    height: 150,
+    logoScale: 0.88,
   },
   {
     name: "Villaggio delle Arti",

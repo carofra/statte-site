@@ -12,7 +12,7 @@ const logoGridClass =
 
 /** Cella logo unica per tutti i tier: stessa altezza/larghezza, allineata a sinistra. */
 const logoCellClass =
-  "flex h-24 w-[10.5rem] shrink-0 items-center justify-start md:h-28 md:w-[12.5rem] lg:h-32 lg:w-[14rem]";
+  "flex h-24 w-[10.5rem] max-w-full shrink-0 items-center justify-start overflow-hidden md:h-28 md:w-[12.5rem] lg:h-32 lg:w-[14rem]";
 
 const logoImageClass = "max-h-full max-w-full object-contain object-left";
 
@@ -35,12 +35,9 @@ function SponsorLogoItem({
 }) {
   const cellClass = sponsor.logoCellClass ?? logoCellClass;
   const scale = sponsor.logoScale ?? 1;
-  const captionWidthClass = sponsor.logoCellClass
-    ? "w-[16rem] md:w-[19rem] lg:w-[22rem]"
-    : "w-[10.5rem] md:w-[12.5rem] lg:w-[14rem]";
 
   return (
-    <li className="flex flex-col items-start">
+    <li className="flex min-w-0 max-w-full flex-col items-start">
       <div className={cellClass}>
         <Image
           src={sponsor.src}
@@ -60,9 +57,7 @@ function SponsorLogoItem({
         />
       </div>
       {sponsor.caption ? (
-        <p
-          className={`mt-1.5 text-left font-serif text-[10px] font-normal uppercase leading-none tracking-[0.05em] text-[#1d1d1b] md:text-[11px] ${captionWidthClass}`}
-        >
+        <p className="mt-1.5 w-[10.5rem] max-w-full text-left font-serif text-[10px] font-normal uppercase leading-none tracking-[0.05em] text-[#1d1d1b] md:w-[12.5rem] md:text-[11px] lg:w-[14rem]">
           {sponsor.caption.prefix}
           <span className="font-bold">{sponsor.caption.emphasis}</span>
         </p>
@@ -80,7 +75,7 @@ function SponsorTierBlock({ tier }: { tier: SponsorTier }) {
       <h3 className="text-[10px] font-normal uppercase leading-none tracking-[0.16em] text-[#1d1d1b]/50 md:text-[11px] lg:text-xs">
         {sponsorTierLabels[tier]}
       </h3>
-      <ul className={logoGridClass}>
+      <ul className={`${logoGridClass} min-w-0`}>
         {tierSponsors.map((sponsor) => (
           <SponsorLogoItem key={sponsor.src} sponsor={sponsor} />
         ))}
