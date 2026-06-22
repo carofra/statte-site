@@ -33,9 +33,15 @@ function SponsorLogoItem({
 }: {
   sponsor: (typeof sponsors)[number];
 }) {
+  const cellClass = sponsor.logoCellClass ?? logoCellClass;
+  const scale = sponsor.logoScale ?? 1;
+  const captionWidthClass = sponsor.logoCellClass
+    ? "w-[16rem] md:w-[19rem] lg:w-[22rem]"
+    : "w-[10.5rem] md:w-[12.5rem] lg:w-[14rem]";
+
   return (
     <li className="flex flex-col items-start">
-      <div className={logoCellClass}>
+      <div className={cellClass}>
         <Image
           src={sponsor.src}
           alt={sponsor.name}
@@ -46,10 +52,17 @@ function SponsorLogoItem({
           fetchPriority="low"
           unoptimized
           className={logoImageClass}
+          style={
+            scale !== 1
+              ? { transform: `scale(${scale})`, transformOrigin: "left center" }
+              : undefined
+          }
         />
       </div>
       {sponsor.caption ? (
-        <p className="mt-1.5 w-[10.5rem] text-left font-serif text-[10px] font-normal uppercase leading-none tracking-[0.05em] text-[#1d1d1b] md:w-[12.5rem] md:text-[11px] lg:w-[14rem]">
+        <p
+          className={`mt-1.5 text-left font-serif text-[10px] font-normal uppercase leading-none tracking-[0.05em] text-[#1d1d1b] md:text-[11px] ${captionWidthClass}`}
+        >
           {sponsor.caption.prefix}
           <span className="font-bold">{sponsor.caption.emphasis}</span>
         </p>
